@@ -190,6 +190,7 @@ enum {
 					  @"FakeCalendar",
 					  @"FakeCamera",
 					  @"FakeClock",
+                      @"FakeCompass",
 					  @"FakeiPod",
 					  @"FakeiTunes",
 					  @"FakeMail",
@@ -198,6 +199,7 @@ enum {
 					  @"FakePhone",
 					  @"FakeStocks",
 					  @"FakeText",
+                      @"FakeVoiceMemos",
 					  @"FakeWeather",
 					  @"FakeYouTube",
 					  nil];

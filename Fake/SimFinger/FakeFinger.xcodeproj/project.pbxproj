@@ -45,6 +45,10 @@
 		5EA7CF300F43FAAA00DE24FB /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 5EA7CF2F0F43FAAA00DE24FB /* Icon.icns */; };
 		5EA7D0620F450EF500DE24FB /* FadeFrame.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EA7D0600F450EF500DE24FB /* FadeFrame.png */; };
 		5EA7D0630F450EF500DE24FB /* iPhoneFrame.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EA7D0610F450EF500DE24FB /* iPhoneFrame.png */; };
+		659FA5BE0FF70EAA000A86E1 /* FakeCompass in Resources */ = {isa = PBXBuildFile; fileRef = 659FA5B60FF70EAA000A86E1 /* FakeCompass */; };
+		659FA5BF0FF70EAA000A86E1 /* FakeCompass.sb in Resources */ = {isa = PBXBuildFile; fileRef = 659FA5B90FF70EAA000A86E1 /* FakeCompass.sb */; };
+		659FA5C00FF70EAA000A86E1 /* FakeVoiceMemos in Resources */ = {isa = PBXBuildFile; fileRef = 659FA5BA0FF70EAA000A86E1 /* FakeVoiceMemos */; };
+		659FA5C10FF70EAA000A86E1 /* FakeVoiceMemos.sb in Resources */ = {isa = PBXBuildFile; fileRef = 659FA5BD0FF70EAA000A86E1 /* FakeVoiceMemos.sb */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -97,6 +101,10 @@
 		5EA7CF2F0F43FAAA00DE24FB /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
 		5EA7D0600F450EF500DE24FB /* FadeFrame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FadeFrame.png; sourceTree = "<group>"; };
 		5EA7D0610F450EF500DE24FB /* iPhoneFrame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhoneFrame.png; sourceTree = "<group>"; };
+		659FA5B60FF70EAA000A86E1 /* FakeCompass */ = {isa = PBXFileReference; lastKnownFileType = folder; name = FakeCompass; path = SimAppCollection/FakeApps/FakeCompass; sourceTree = "<group>"; };
+		659FA5B90FF70EAA000A86E1 /* FakeCompass.sb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FakeCompass.sb; path = SimAppCollection/FakeApps/FakeCompass.sb; sourceTree = "<group>"; };
+		659FA5BA0FF70EAA000A86E1 /* FakeVoiceMemos */ = {isa = PBXFileReference; lastKnownFileType = folder; name = FakeVoiceMemos; path = SimAppCollection/FakeApps/FakeVoiceMemos; sourceTree = "<group>"; };
+		659FA5BD0FF70EAA000A86E1 /* FakeVoiceMemos.sb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FakeVoiceMemos.sb; path = SimAppCollection/FakeApps/FakeVoiceMemos.sb; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* SimFinger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimFinger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -199,6 +207,10 @@
 		5E4D86810F45EC4A00E02F03 /* FakeApps */ = {
 			isa = PBXGroup;
 			children = (
+				659FA5B60FF70EAA000A86E1 /* FakeCompass */,
+				659FA5B90FF70EAA000A86E1 /* FakeCompass.sb */,
+				659FA5BA0FF70EAA000A86E1 /* FakeVoiceMemos */,
+				659FA5BD0FF70EAA000A86E1 /* FakeVoiceMemos.sb */,
 				5E4D86270F45EC4700E02F03 /* FakeAppStore */,
 				5E4D862A0F45EC4700E02F03 /* FakeAppStore.sb */,
 				5E4D862B0F45EC4700E02F03 /* FakeCalculator */,
@@ -313,6 +325,10 @@
 				5E4D867E0F45EC4700E02F03 /* FakeWeather.sb in Resources */,
 				5E4D867F0F45EC4700E02F03 /* FakeYouTube in Resources */,
 				5E4D86800F45EC4700E02F03 /* FakeYouTube.sb in Resources */,
+				659FA5BE0FF70EAA000A86E1 /* FakeCompass in Resources */,
+				659FA5BF0FF70EAA000A86E1 /* FakeCompass.sb in Resources */,
+				659FA5C00FF70EAA000A86E1 /* FakeVoiceMemos in Resources */,
+				659FA5C10FF70EAA000A86E1 /* FakeVoiceMemos.sb in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

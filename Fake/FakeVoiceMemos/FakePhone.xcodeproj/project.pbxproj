@@ -11,22 +11,22 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
+		5E4D85370F45562F00E02F03 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E4D85360F45562F00E02F03 /* MainWindow.xib */; };
+		5E4D853A0F45563600E02F03 /* FakePhoneAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4D85390F45563600E02F03 /* FakePhoneAppDelegate.m */; };
 		5EA7CDB00F43E6E800DE24FB /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EA7CDAF0F43E6E800DE24FB /* Icon.png */; };
-		5EA7D0300F4509A400DE24FB /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EA7D02F0F4509A400DE24FB /* MainWindow.xib */; };
-		5EA7D0330F4509A900DE24FB /* FakePhoneAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA7D0320F4509A900DE24FB /* FakePhoneAppDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		1D6058910D05DD3D006BFB54 /* Messages.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Messages.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D6058910D05DD3D006BFB54 /* Voice Memos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Voice Memos.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* FakePhone_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakePhone_Prefix.pch; sourceTree = "<group>"; };
+		5E4D85360F45562F00E02F03 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MainWindow.xib; path = ../FakeAppShared/MainWindow.xib; sourceTree = SOURCE_ROOT; };
+		5E4D85380F45563600E02F03 /* FakePhoneAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FakePhoneAppDelegate.h; path = ../FakeAppShared/FakePhoneAppDelegate.h; sourceTree = SOURCE_ROOT; };
+		5E4D85390F45563600E02F03 /* FakePhoneAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FakePhoneAppDelegate.m; path = ../FakeAppShared/FakePhoneAppDelegate.m; sourceTree = SOURCE_ROOT; };
 		5EA7CDAF0F43E6E800DE24FB /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		5EA7D02F0F4509A400DE24FB /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MainWindow.xib; path = ../FakeAppShared/MainWindow.xib; sourceTree = SOURCE_ROOT; };
-		5EA7D0310F4509A900DE24FB /* FakePhoneAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FakePhoneAppDelegate.h; path = ../FakeAppShared/FakePhoneAppDelegate.h; sourceTree = SOURCE_ROOT; };
-		5EA7D0320F4509A900DE24FB /* FakePhoneAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FakePhoneAppDelegate.m; path = ../FakeAppShared/FakePhoneAppDelegate.m; sourceTree = SOURCE_ROOT; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -47,7 +47,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1D6058910D05DD3D006BFB54 /* Messages.app */,
+				1D6058910D05DD3D006BFB54 /* Voice Memos.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -66,8 +66,8 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				5EA7D0310F4509A900DE24FB /* FakePhoneAppDelegate.h */,
-				5EA7D0320F4509A900DE24FB /* FakePhoneAppDelegate.m */,
+				5E4D85380F45563600E02F03 /* FakePhoneAppDelegate.h */,
+				5E4D85390F45563600E02F03 /* FakePhoneAppDelegate.m */,
 				32CA4F630368D1EE00C91783 /* FakePhone_Prefix.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 			);
@@ -77,8 +77,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5E4D85360F45562F00E02F03 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* Info.plist */,
-				5EA7D02F0F4509A400DE24FB /* MainWindow.xib */,
 				5EA7CDAF0F43E6E800DE24FB /* Icon.png */,
 			);
 			name = Resources;
@@ -111,7 +111,7 @@
 			);
 			name = FakePhone;
 			productName = FakePhone;
-			productReference = 1D6058910D05DD3D006BFB54 /* Messages.app */;
+			productReference = 1D6058910D05DD3D006BFB54 /* Voice Memos.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -137,7 +137,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EA7CDB00F43E6E800DE24FB /* Icon.png in Resources */,
-				5EA7D0300F4509A400DE24FB /* MainWindow.xib in Resources */,
+				5E4D85370F45562F00E02F03 /* MainWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,7 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
-				5EA7D0330F4509A900DE24FB /* FakePhoneAppDelegate.m in Sources */,
+				5E4D853A0F45563600E02F03 /* FakePhoneAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,7 +166,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = FakePhone_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
-				PRODUCT_NAME = Messages;
+				PRODUCT_NAME = "Voice Memos";
 			};
 			name = Debug;
 		};
