@@ -9,12 +9,41 @@
 #import "FakeFingerAppDelegate.h"
 #import <Carbon/Carbon.h>
 
+
+void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef element, CFStringRef notificationName, void * contextData ) {
+    FakeFingerAppDelegate * delegate= (FakeFingerAppDelegate *) contextData;
+	[delegate positionSimulatorWindow:nil];
+}
+
 @implementation FakeFingerAppDelegate
 
 
+- (void)registerForSimulatorWindowResizedNotification {
+	// this methode is leaking ...
+	
+	AXUIElementRef simulatorApp = [self simulatorApplication];
+	if (!simulatorApp) return;
+	
+	AXUIElementRef frontWindow = NULL;
+	AXError err = AXUIElementCopyAttributeValue( simulatorApp, kAXFocusedWindowAttribute, (CFTypeRef *) &frontWindow );
+	if ( err != kAXErrorSuccess ) return;
 
-- (void)positionSimulatorWindow:(id)sender
-{
+	AXObserverRef observer = NULL;
+	pid_t pid;
+	AXUIElementGetPid(simulatorApp, &pid);
+	err = AXObserverCreate(pid, WindowFrameDidChangeCallback, &observer );
+	if ( err != kAXErrorSuccess ) return;
+	
+	AXObserverAddNotification( observer, frontWindow, kAXResizedNotification, self );
+	AXObserverAddNotification( observer, frontWindow, kAXMovedNotification, self );
+
+	CFRunLoopAddSource( [[NSRunLoop currentRunLoop] getCFRunLoop],  AXObserverGetRunLoopSource(observer),  kCFRunLoopDefaultMode );
+		
+}
+
+
+
+- (AXUIElementRef)simulatorApplication {
 	if(AXAPIEnabled())
 	{
 		NSArray *applications = [[NSWorkspace sharedWorkspace] launchedApplications];
@@ -31,48 +60,77 @@
 															launchIdentifier:nil];
 				
 				AXUIElementRef element = AXUIElementCreateApplication(pid);
-				
-				CFArrayRef attributeNames;
-				AXUIElementCopyAttributeNames(element, &attributeNames);
-				
-				CFArrayRef value;
-				AXUIElementCopyAttributeValue(element, CFSTR("AXWindows"), (CFTypeRef *)&value);
-				
-				for(id object in (NSArray *)value)
-				{
-					if(CFGetTypeID(object) == AXUIElementGetTypeID())
-					{
-						AXUIElementRef subElement = (AXUIElementRef)object;
-						
-						AXUIElementPerformAction(subElement, kAXRaiseAction);
-						
-						CFArrayRef subAttributeNames;
-						AXUIElementCopyAttributeNames(subElement, &subAttributeNames);
-						
-						CFTypeRef sizeValue;
-						AXUIElementCopyAttributeValue(subElement, kAXSizeAttribute, (CFTypeRef *)&sizeValue);
-						
-						CGSize size;
-						AXValueGetValue(sizeValue, kAXValueCGSizeType, (void *)&size);
-						
-						if((int)size.width == 386 && (int)size.height == 742)
-						{
-							Boolean settable;
-							AXUIElementIsAttributeSettable(subElement, kAXPositionAttribute, &settable);
-							
-							CGPoint point;
-							point.x = 121;
-							point.y = screenRect.size.height - size.height - 135;
-							AXValueRef pointValue = AXValueCreate(kAXValueCGPointType, &point);
-							
-							AXUIElementSetAttributeValue(subElement, kAXPositionAttribute, (CFTypeRef)pointValue);
-						}
-					}
-				}
+				return element;
 			}
 		}
 	} else {
 		NSRunAlertPanel(@"Universal Access Disabled", @"You must enable access for assistive devices in the System Preferences, under Universal Access.", @"OK", nil, nil, nil);
+	}
+	return NULL;
+}
+
+- (void)positionSimulatorWindow:(id)sender
+{
+				
+	AXUIElementRef element = [self simulatorApplication];
+	
+	CFArrayRef attributeNames;
+	AXUIElementCopyAttributeNames(element, &attributeNames);
+	
+	CFArrayRef value;
+	AXUIElementCopyAttributeValue(element, CFSTR("AXWindows"), (CFTypeRef *)&value);
+	
+	for(id object in (NSArray *)value)
+	{
+		if(CFGetTypeID(object) == AXUIElementGetTypeID())
+		{
+			AXUIElementRef subElement = (AXUIElementRef)object;
+			
+			AXUIElementPerformAction(subElement, kAXRaiseAction);
+			
+			CFArrayRef subAttributeNames;
+			AXUIElementCopyAttributeNames(subElement, &subAttributeNames);
+			
+			CFTypeRef sizeValue;
+			AXUIElementCopyAttributeValue(subElement, kAXSizeAttribute, (CFTypeRef *)&sizeValue);
+			
+			CGSize size;
+			AXValueGetValue(sizeValue, kAXValueCGSizeType, (void *)&size);
+			
+			BOOL supportedSize = NO;
+			if((int)size.width == 386 && (int)size.height == 742)
+			{
+				[hardwareOverlay setContentSize:NSMakeSize(634, 985)];
+				[hardwareOverlay setBackgroundColor:[NSColor colorWithPatternImage:[NSImage imageNamed:@"iPhoneFrame"]]];
+				
+				[fadeOverlay setContentSize:NSMakeSize(634,985)];
+				[fadeOverlay setBackgroundColor:[NSColor colorWithPatternImage:[NSImage imageNamed:@"FadeFrame"]]];
+				
+				supportedSize = YES;
+				
+			} else if((int)size.width == 742 && (int)size.height == 386) {
+				[hardwareOverlay setContentSize:NSMakeSize(985,634)];
+				[hardwareOverlay setBackgroundColor:[NSColor colorWithPatternImage:[NSImage imageNamed:@"iPhoneFrameLandscape"]]];
+				
+				[fadeOverlay setContentSize:NSMakeSize(985,634)];
+				[fadeOverlay setBackgroundColor:[NSColor colorWithPatternImage:[NSImage imageNamed:@"FadeFrameLandscape"]]];
+				
+				supportedSize = YES;
+			}
+			
+			if (supportedSize) {
+				Boolean settable;
+				AXUIElementIsAttributeSettable(subElement, kAXPositionAttribute, &settable);
+				
+				CGPoint point;
+				point.x = 121;
+				point.y = screenRect.size.height - size.height - 135;
+				AXValueRef pointValue = AXValueCreate(kAXValueCGPointType, &point);
+				
+				AXUIElementSetAttributeValue(subElement, kAXPositionAttribute, (CFTypeRef)pointValue);
+			}							
+			
+		}
 	}
 }
 
@@ -351,6 +409,7 @@ CGEventRef tapCallBack(CGEventTapProxy proxy, CGEventType type, CGEventRef event
 	CFRelease(runLoopSource);
 	CFRelease(tap);
 	
+	[self registerForSimulatorWindowResizedNotification];
 	[self positionSimulatorWindow:nil];
 }
 

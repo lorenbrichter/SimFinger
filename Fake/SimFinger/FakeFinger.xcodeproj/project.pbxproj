@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
+		2B4EC07110301C1600042E09 /* iPhoneFrameLandscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B4EC07010301C1600042E09 /* iPhoneFrameLandscape.png */; };
+		2B4EC09B10301F3800042E09 /* FadeFrameLandscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B4EC09A10301F3800042E09 /* FadeFrameLandscape.png */; };
 		5E4D86630F45EC4700E02F03 /* FakeAppStore in Resources */ = {isa = PBXBuildFile; fileRef = 5E4D86270F45EC4700E02F03 /* FakeAppStore */; };
 		5E4D86640F45EC4700E02F03 /* FakeAppStore.sb in Resources */ = {isa = PBXBuildFile; fileRef = 5E4D862A0F45EC4700E02F03 /* FakeAppStore.sb */; };
 		5E4D86650F45EC4700E02F03 /* FakeCalculator in Resources */ = {isa = PBXBuildFile; fileRef = 5E4D862B0F45EC4700E02F03 /* FakeCalculator */; };
@@ -62,6 +64,8 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		2B4EC07010301C1600042E09 /* iPhoneFrameLandscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhoneFrameLandscape.png; sourceTree = "<group>"; };
+		2B4EC09A10301F3800042E09 /* FadeFrameLandscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FadeFrameLandscape.png; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* FakeFinger_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeFinger_Prefix.pch; sourceTree = "<group>"; };
 		5E4D86270F45EC4700E02F03 /* FakeAppStore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = FakeAppStore; path = SimAppCollection/FakeApps/FakeAppStore; sourceTree = "<group>"; };
 		5E4D862A0F45EC4700E02F03 /* FakeAppStore.sb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FakeAppStore.sb; path = SimAppCollection/FakeApps/FakeAppStore.sb; sourceTree = "<group>"; };
@@ -186,7 +190,9 @@
 				5EA7CEEF0F43EECC00DE24FB /* Hover.png */,
 				5EA7CF180F43F90F00DE24FB /* Active.png */,
 				5EA7D0600F450EF500DE24FB /* FadeFrame.png */,
+				2B4EC09A10301F3800042E09 /* FadeFrameLandscape.png */,
 				5EA7D0610F450EF500DE24FB /* iPhoneFrame.png */,
+				2B4EC07010301C1600042E09 /* iPhoneFrameLandscape.png */,
 				5EA7CF2F0F43FAAA00DE24FB /* Icon.icns */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
@@ -329,6 +335,8 @@
 				659FA5BF0FF70EAA000A86E1 /* FakeCompass.sb in Resources */,
 				659FA5C00FF70EAA000A86E1 /* FakeVoiceMemos in Resources */,
 				659FA5C10FF70EAA000A86E1 /* FakeVoiceMemos.sb in Resources */,
+				2B4EC07110301C1600042E09 /* iPhoneFrameLandscape.png in Resources */,
+				2B4EC09B10301F3800042E09 /* FadeFrameLandscape.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

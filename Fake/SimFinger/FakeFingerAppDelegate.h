@@ -27,6 +27,8 @@
 	IBOutlet NSTextField *setTextField;
 }
 
+- (AXUIElementRef)simulatorApplication;
+
 - (IBAction)configureHardwareOverlay:(NSMenuItem *)sender;
 - (IBAction)configurePointerOverlay:(NSMenuItem *)sender;
 - (IBAction)positionSimulatorWindow:(id)sender;
