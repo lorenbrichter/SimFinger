@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
-		2B4EC07110301C1600042E09 /* iPhoneFrameLandscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B4EC07010301C1600042E09 /* iPhoneFrameLandscape.png */; };
 		2B4EC09B10301F3800042E09 /* FadeFrameLandscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B4EC09A10301F3800042E09 /* FadeFrameLandscape.png */; };
 		5E4D86630F45EC4700E02F03 /* FakeAppStore in Resources */ = {isa = PBXBuildFile; fileRef = 5E4D86270F45EC4700E02F03 /* FakeAppStore */; };
 		5E4D86640F45EC4700E02F03 /* FakeAppStore.sb in Resources */ = {isa = PBXBuildFile; fileRef = 5E4D862A0F45EC4700E02F03 /* FakeAppStore.sb */; };
@@ -40,6 +39,8 @@
 		5E4D867E0F45EC4700E02F03 /* FakeWeather.sb in Resources */ = {isa = PBXBuildFile; fileRef = 5E4D865E0F45EC4700E02F03 /* FakeWeather.sb */; };
 		5E4D867F0F45EC4700E02F03 /* FakeYouTube in Resources */ = {isa = PBXBuildFile; fileRef = 5E4D865F0F45EC4700E02F03 /* FakeYouTube */; };
 		5E4D86800F45EC4700E02F03 /* FakeYouTube.sb in Resources */ = {isa = PBXBuildFile; fileRef = 5E4D86620F45EC4700E02F03 /* FakeYouTube.sb */; };
+		5E8B471B10504F9F00DF6DFB /* iPhoneFrameLandscape_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E8B471910504F9F00DF6DFB /* iPhoneFrameLandscape_right.png */; };
+		5E8B471C10504F9F00DF6DFB /* iPhoneFrameLandscape_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E8B471A10504F9F00DF6DFB /* iPhoneFrameLandscape_left.png */; };
 		5EA7CD990F43CCE000DE24FB /* FakeFingerAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA7CD980F43CCE000DE24FB /* FakeFingerAppDelegate.m */; };
 		5EA7CEF00F43EECC00DE24FB /* Hover.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EA7CEEF0F43EECC00DE24FB /* Hover.png */; };
 		5EA7CEF80F43F1E700DE24FB /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EA7CEF70F43F1E700DE24FB /* Carbon.framework */; };
@@ -64,7 +65,6 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
-		2B4EC07010301C1600042E09 /* iPhoneFrameLandscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhoneFrameLandscape.png; sourceTree = "<group>"; };
 		2B4EC09A10301F3800042E09 /* FadeFrameLandscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FadeFrameLandscape.png; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* FakeFinger_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeFinger_Prefix.pch; sourceTree = "<group>"; };
 		5E4D86270F45EC4700E02F03 /* FakeAppStore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = FakeAppStore; path = SimAppCollection/FakeApps/FakeAppStore; sourceTree = "<group>"; };
@@ -97,6 +97,8 @@
 		5E4D865E0F45EC4700E02F03 /* FakeWeather.sb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FakeWeather.sb; path = SimAppCollection/FakeApps/FakeWeather.sb; sourceTree = "<group>"; };
 		5E4D865F0F45EC4700E02F03 /* FakeYouTube */ = {isa = PBXFileReference; lastKnownFileType = folder; name = FakeYouTube; path = SimAppCollection/FakeApps/FakeYouTube; sourceTree = "<group>"; };
 		5E4D86620F45EC4700E02F03 /* FakeYouTube.sb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FakeYouTube.sb; path = SimAppCollection/FakeApps/FakeYouTube.sb; sourceTree = "<group>"; };
+		5E8B471910504F9F00DF6DFB /* iPhoneFrameLandscape_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhoneFrameLandscape_right.png; sourceTree = "<group>"; };
+		5E8B471A10504F9F00DF6DFB /* iPhoneFrameLandscape_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhoneFrameLandscape_left.png; sourceTree = "<group>"; };
 		5EA7CD970F43CCE000DE24FB /* FakeFingerAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeFingerAppDelegate.h; sourceTree = "<group>"; };
 		5EA7CD980F43CCE000DE24FB /* FakeFingerAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeFingerAppDelegate.m; sourceTree = "<group>"; };
 		5EA7CEEF0F43EECC00DE24FB /* Hover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Hover.png; sourceTree = "<group>"; };
@@ -192,7 +194,8 @@
 				5EA7D0600F450EF500DE24FB /* FadeFrame.png */,
 				2B4EC09A10301F3800042E09 /* FadeFrameLandscape.png */,
 				5EA7D0610F450EF500DE24FB /* iPhoneFrame.png */,
-				2B4EC07010301C1600042E09 /* iPhoneFrameLandscape.png */,
+				5E8B471910504F9F00DF6DFB /* iPhoneFrameLandscape_right.png */,
+				5E8B471A10504F9F00DF6DFB /* iPhoneFrameLandscape_left.png */,
 				5EA7CF2F0F43FAAA00DE24FB /* Icon.icns */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
@@ -335,8 +338,9 @@
 				659FA5BF0FF70EAA000A86E1 /* FakeCompass.sb in Resources */,
 				659FA5C00FF70EAA000A86E1 /* FakeVoiceMemos in Resources */,
 				659FA5C10FF70EAA000A86E1 /* FakeVoiceMemos.sb in Resources */,
-				2B4EC07110301C1600042E09 /* iPhoneFrameLandscape.png in Resources */,
 				2B4EC09B10301F3800042E09 /* FadeFrameLandscape.png in Resources */,
+				5E8B471B10504F9F00DF6DFB /* iPhoneFrameLandscape_right.png in Resources */,
+				5E8B471C10504F9F00DF6DFB /* iPhoneFrameLandscape_left.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

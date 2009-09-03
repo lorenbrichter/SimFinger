@@ -110,7 +110,7 @@ void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef elemen
 				
 			} else if((int)size.width == 742 && (int)size.height == 386) {
 				[hardwareOverlay setContentSize:NSMakeSize(985,634)];
-				[hardwareOverlay setBackgroundColor:[NSColor colorWithPatternImage:[NSImage imageNamed:@"iPhoneFrameLandscape"]]];
+				[hardwareOverlay setBackgroundColor:[NSColor colorWithPatternImage:[NSImage imageNamed:@"iPhoneFrameLandscape_right"]]];
 				
 				[fadeOverlay setContentSize:NSMakeSize(985,634)];
 				[fadeOverlay setBackgroundColor:[NSColor colorWithPatternImage:[NSImage imageNamed:@"FadeFrameLandscape"]]];
