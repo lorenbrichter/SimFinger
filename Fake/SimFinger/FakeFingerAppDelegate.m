@@ -66,6 +66,7 @@ void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef elemen
 	} else {
 		NSRunAlertPanel(@"Universal Access Disabled", @"You must enable access for assistive devices in the System Preferences, under Universal Access.", @"OK", nil, nil, nil);
 	}
+	NSRunAlertPanel(@"Couldn't find Simulator", @"Couldn't find iPhone Simulator.", @"OK", nil, nil, nil);
 	return NULL;
 }
 
@@ -97,7 +98,11 @@ void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef elemen
 			CGSize size;
 			AXValueGetValue(sizeValue, kAXValueCGSizeType, (void *)&size);
 			
+			NSLog(@"Simulator current size: %d, %d", (int)size.width, (int)size.height);
+			
 			BOOL supportedSize = NO;
+			BOOL iPadMode = NO;
+			BOOL landscape = NO;
 			if((int)size.width == 386 && (int)size.height == 742)
 			{
 				[hardwareOverlay setContentSize:NSMakeSize(634, 985)];
@@ -116,6 +121,26 @@ void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef elemen
 				[fadeOverlay setBackgroundColor:[NSColor colorWithPatternImage:[NSImage imageNamed:@"FadeFrameLandscape"]]];
 				
 				supportedSize = YES;
+				landscape = YES;
+			} else if ((int)size.width == 852 && (int)size.height == 1108) {
+				[hardwareOverlay setContentSize:NSMakeSize(1128, 1410)];
+				[hardwareOverlay setBackgroundColor:[NSColor colorWithPatternImage:[NSImage imageNamed:@"iPadFrame"]]];
+				
+				[fadeOverlay setContentSize:NSMakeSize(1128, 1410)];
+				[fadeOverlay setBackgroundColor:[NSColor colorWithPatternImage:[NSImage imageNamed:@"iPadFade"]]];
+				
+				supportedSize = YES;
+				iPadMode = YES;
+			} else if ((int)size.width == 1108 && (int)size.height == 852) {
+				[hardwareOverlay setContentSize:NSMakeSize(1410, 1128)];
+				[hardwareOverlay setBackgroundColor:[NSColor colorWithPatternImage:[NSImage imageNamed:@"iPadFrameLandscape_right"]]];
+				
+				[fadeOverlay setContentSize:NSMakeSize(1128, 1410)];
+				[fadeOverlay setBackgroundColor:[NSColor colorWithPatternImage:[NSImage imageNamed:@"iPadFadeLandscape"]]];
+				
+				supportedSize = YES;
+				iPadMode = YES;
+				landscape = YES;
 			}
 			
 			if (supportedSize) {
@@ -123,8 +148,18 @@ void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef elemen
 				AXUIElementIsAttributeSettable(subElement, kAXPositionAttribute, &settable);
 				
 				CGPoint point;
-				point.x = 121;
-				point.y = screenRect.size.height - size.height - 135;
+				if (!iPadMode) {
+					point.x = 121;
+					point.y = screenRect.size.height - size.height - 135;					
+				} else {
+					if (!landscape) {
+						point.x = 138;
+					} else {
+						point.x = 157;
+					}
+					
+					point.y = screenRect.size.height - size.height - 156;
+				}
 				AXValueRef pointValue = AXValueCreate(kAXValueCGPointType, &point);
 				
 				AXUIElementSetAttributeValue(subElement, kAXPositionAttribute, (CFTypeRef)pointValue);
@@ -411,6 +446,7 @@ CGEventRef tapCallBack(CGEventTapProxy proxy, CGEventType type, CGEventRef event
 	
 	[self registerForSimulatorWindowResizedNotification];
 	[self positionSimulatorWindow:nil];
+	NSLog(@"Repositioned simulator window.");
 }
 
 @end

@@ -54,6 +54,10 @@
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		C9FB62C312480F03001AD88A /* iPadFade.png in Resources */ = {isa = PBXBuildFile; fileRef = C9FB62C112480F03001AD88A /* iPadFade.png */; };
+		C9FB62C412480F03001AD88A /* iPadFrame.png in Resources */ = {isa = PBXBuildFile; fileRef = C9FB62C212480F03001AD88A /* iPadFrame.png */; };
+		C9FB63001249139D001AD88A /* iPadFadeLandscape.png in Resources */ = {isa = PBXBuildFile; fileRef = C9FB62FE1249139D001AD88A /* iPadFadeLandscape.png */; };
+		C9FB63011249139D001AD88A /* iPadFrameLandscape_right.png in Resources */ = {isa = PBXBuildFile; fileRef = C9FB62FF1249139D001AD88A /* iPadFrameLandscape_right.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,6 +115,10 @@
 		659FA5BD0FF70EAA000A86E1 /* FakeVoiceMemos.sb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FakeVoiceMemos.sb; path = SimAppCollection/FakeApps/FakeVoiceMemos.sb; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* SimFinger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimFinger.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9FB62C112480F03001AD88A /* iPadFade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPadFade.png; sourceTree = "<group>"; };
+		C9FB62C212480F03001AD88A /* iPadFrame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPadFrame.png; sourceTree = "<group>"; };
+		C9FB62FE1249139D001AD88A /* iPadFadeLandscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPadFadeLandscape.png; sourceTree = "<group>"; };
+		C9FB62FF1249139D001AD88A /* iPadFrameLandscape_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPadFrameLandscape_right.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +201,10 @@
 				2B4EC09A10301F3800042E09 /* FadeFrameLandscape.png */,
 				5EA7D0610F450EF500DE24FB /* iPhoneFrame.png */,
 				5E8B471910504F9F00DF6DFB /* iPhoneFrameLandscape_right.png */,
+				C9FB62FE1249139D001AD88A /* iPadFadeLandscape.png */,
+				C9FB62FF1249139D001AD88A /* iPadFrameLandscape_right.png */,
+				C9FB62C112480F03001AD88A /* iPadFade.png */,
+				C9FB62C212480F03001AD88A /* iPadFrame.png */,
 				5EA7CF2F0F43FAAA00DE24FB /* Icon.icns */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
@@ -279,7 +291,14 @@
 			isa = PBXProject;
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "FakeFinger" */;
 			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* FakeFinger */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -337,6 +356,10 @@
 				659FA5C10FF70EAA000A86E1 /* FakeVoiceMemos.sb in Resources */,
 				2B4EC09B10301F3800042E09 /* FadeFrameLandscape.png in Resources */,
 				5E8B471B10504F9F00DF6DFB /* iPhoneFrameLandscape_right.png in Resources */,
+				C9FB62C312480F03001AD88A /* iPadFade.png in Resources */,
+				C9FB62C412480F03001AD88A /* iPadFrame.png in Resources */,
+				C9FB63001249139D001AD88A /* iPadFadeLandscape.png in Resources */,
+				C9FB63011249139D001AD88A /* iPadFrameLandscape_right.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
