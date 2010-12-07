@@ -9,16 +9,16 @@
 #import "FakeFingerAppDelegate.h"
 #import <Carbon/Carbon.h>
 
-
-void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef element, CFStringRef notificationName, void * contextData ) {
+void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef element, CFStringRef notificationName, void * contextData)
+{
     FakeFingerAppDelegate * delegate= (FakeFingerAppDelegate *) contextData;
 	[delegate positionSimulatorWindow:nil];
 }
 
 @implementation FakeFingerAppDelegate
 
-
-- (void)registerForSimulatorWindowResizedNotification {
+- (void)registerForSimulatorWindowResizedNotification
+{
 	// this methode is leaking ...
 	
 	AXUIElementRef simulatorApp = [self simulatorApplication];
@@ -41,9 +41,8 @@ void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef elemen
 		
 }
 
-
-
-- (AXUIElementRef)simulatorApplication {
+- (AXUIElementRef)simulatorApplication
+{
 	if(AXAPIEnabled())
 	{
 		NSArray *applications = [[NSWorkspace sharedWorkspace] launchedApplications];
@@ -72,7 +71,6 @@ void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef elemen
 
 - (void)positionSimulatorWindow:(id)sender
 {
-				
 	AXUIElementRef element = [self simulatorApplication];
 	
 	CFArrayRef attributeNames;
@@ -103,10 +101,12 @@ void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef elemen
 			BOOL supportedSize = NO;
 			BOOL iPadMode = NO;
 			BOOL landscape = NO;
-			int EXPECTED_WIDTH = 368;
-			int EXPECTED_HEIGHT = 716;
-			if((int)size.width == EXPECTED_WIDTH && (int)size.height == EXPECTED_HEIGHT)
-			{
+			int iPhoneWidth = 368;
+			int iPhoneHeight = 716;
+			int iPadWidth = 852;
+			int iPadHeight = 1108;
+			
+			if((int)size.width == iPhoneWidth && (int)size.height == iPhoneHeight) {
 				[hardwareOverlay setContentSize:NSMakeSize(634, 985)];
 				[hardwareOverlay setBackgroundColor:[NSColor colorWithPatternImage:[NSImage imageNamed:@"iPhoneFrame"]]];
 				
@@ -114,8 +114,7 @@ void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef elemen
 				[fadeOverlay setBackgroundColor:[NSColor colorWithPatternImage:[NSImage imageNamed:@"FadeFrame"]]];
 				
 				supportedSize = YES;
-				
-			} else if((int)size.width == EXPECTED_HEIGHT && (int)size.height == EXPECTED_WIDTH) {
+			} else if((int)size.width == iPhoneHeight && (int)size.height == iPhoneWidth) {
 				[hardwareOverlay setContentSize:NSMakeSize(985,634)];
 				[hardwareOverlay setBackgroundColor:[NSColor colorWithPatternImage:[NSImage imageNamed:@"iPhoneFrameLandscape_right"]]];
 				
@@ -124,7 +123,7 @@ void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef elemen
 				
 				supportedSize = YES;
 				landscape = YES;
-			} else if ((int)size.width == 852 && (int)size.height == 1108) {
+			} else if ((int)size.width == iPadWidth && (int)size.height == iPadHeight) {
 				[hardwareOverlay setContentSize:NSMakeSize(1128, 1410)];
 				[hardwareOverlay setBackgroundColor:[NSColor colorWithPatternImage:[NSImage imageNamed:@"iPadFrame"]]];
 				
@@ -133,7 +132,7 @@ void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef elemen
 				
 				supportedSize = YES;
 				iPadMode = YES;
-			} else if ((int)size.width == 1108 && (int)size.height == 852) {
+			} else if ((int)size.width == iPadHeight && (int)size.height == iPadWidth) {
 				[hardwareOverlay setContentSize:NSMakeSize(1410, 1128)];
 				[hardwareOverlay setBackgroundColor:[NSColor colorWithPatternImage:[NSImage imageNamed:@"iPadFrameLandscape_right"]]];
 				
@@ -145,12 +144,12 @@ void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef elemen
 				landscape = YES;
 			}
 			
-			if (supportedSize) {
+			if(supportedSize) {
 				Boolean settable;
 				AXUIElementIsAttributeSettable(subElement, kAXPositionAttribute, &settable);
 				
 				CGPoint point;
-				if (!iPadMode) {
+				if(!iPadMode) {
 					if(!landscape) {
 						point.x = 121+9;
 						point.y = screenRect.size.height - size.height - 135 - 13;
@@ -176,7 +175,8 @@ void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef elemen
 	}
 }
 
-- (NSString *)iosVersion {
+- (NSString *)iosVersion
+{
 	return @"4.0.2";
 }
 
@@ -282,9 +282,6 @@ enum {
 	[self restoreSpringboardPrefs];
 }
 
-
-
-
 - (IBAction)installFakeApps:(id)sender
 {
 	NSError *error;
@@ -328,9 +325,6 @@ enum {
 	
 	NSRunAlertPanel(@"Fake Apps Installed", @"Fake Apps have been installed in iPhone Simulator.  Please restart iPhone Simulator for changes to take effect.", @"OK", nil, nil);
 }
-
-
-
 
 - (void)_updateWindowPosition
 {
