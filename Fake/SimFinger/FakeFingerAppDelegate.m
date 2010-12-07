@@ -50,7 +50,7 @@ void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef elemen
 		
 		for(NSDictionary *application in applications)
 		{
-			if([[application objectForKey:@"NSApplicationName"] isEqualToString:@"iPhone Simulator"])
+			if([[application objectForKey:@"NSApplicationName"] isEqualToString:@"iOS Simulator"])
 			{
 				pid_t pid = (pid_t)[[application objectForKey:@"NSApplicationProcessIdentifier"] integerValue];
 				
@@ -66,7 +66,7 @@ void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef elemen
 	} else {
 		NSRunAlertPanel(@"Universal Access Disabled", @"You must enable access for assistive devices in the System Preferences, under Universal Access.", @"OK", nil, nil, nil);
 	}
-	NSRunAlertPanel(@"Couldn't find Simulator", @"Couldn't find iPhone Simulator.", @"OK", nil, nil, nil);
+	NSRunAlertPanel(@"Couldn't find Simulator", @"Couldn't find iOS Simulator.", @"OK", nil, nil, nil);
 	return NULL;
 }
 
@@ -103,7 +103,9 @@ void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef elemen
 			BOOL supportedSize = NO;
 			BOOL iPadMode = NO;
 			BOOL landscape = NO;
-			if((int)size.width == 386 && (int)size.height == 742)
+			int EXPECTED_WIDTH = 368;
+			int EXPECTED_HEIGHT = 716;
+			if((int)size.width == EXPECTED_WIDTH && (int)size.height == EXPECTED_HEIGHT)
 			{
 				[hardwareOverlay setContentSize:NSMakeSize(634, 985)];
 				[hardwareOverlay setBackgroundColor:[NSColor colorWithPatternImage:[NSImage imageNamed:@"iPhoneFrame"]]];
@@ -113,7 +115,7 @@ void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef elemen
 				
 				supportedSize = YES;
 				
-			} else if((int)size.width == 742 && (int)size.height == 386) {
+			} else if((int)size.width == EXPECTED_HEIGHT && (int)size.height == EXPECTED_WIDTH) {
 				[hardwareOverlay setContentSize:NSMakeSize(985,634)];
 				[hardwareOverlay setBackgroundColor:[NSColor colorWithPatternImage:[NSImage imageNamed:@"iPhoneFrameLandscape_right"]]];
 				
@@ -149,8 +151,13 @@ void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef elemen
 				
 				CGPoint point;
 				if (!iPadMode) {
-					point.x = 121;
-					point.y = screenRect.size.height - size.height - 135;					
+					if(!landscape) {
+						point.x = 121+9;
+						point.y = screenRect.size.height - size.height - 135 - 13;
+					} else {
+						point.x = 121+9+4;
+						point.y = screenRect.size.height - size.height - 135 - 13 + 4;
+					}
 				} else {
 					if (!landscape) {
 						point.x = 138;
@@ -169,11 +176,13 @@ void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef elemen
 	}
 }
 
-
+- (NSString *)iosVersion {
+	return @"4.0.2";
+}
 
 - (NSString *)springboardPrefsPath
 {
-	return [@"~/Library/Application Support/iPhone Simulator/User/Library/Preferences/com.apple.springboard.plist" stringByExpandingTildeInPath];
+	return [[NSString stringWithFormat: @"~/Library/Application Support/iPhone Simulator/%@/Library/Preferences/com.apple.springboard.plist", [self iosVersion]] stringByExpandingTildeInPath];
 }
 
 - (NSMutableDictionary *)springboardPrefs
@@ -181,6 +190,8 @@ void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef elemen
 	if(!springboardPrefs)
 	{
 		springboardPrefs = [[NSDictionary dictionaryWithContentsOfFile:[self springboardPrefsPath]] mutableCopy];
+		if(!springboardPrefs)
+			springboardPrefs = [[NSMutableDictionary alloc] init];
 	}
 	return springboardPrefs;
 }
@@ -191,7 +202,7 @@ void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef elemen
 	NSData *plist = [NSPropertyListSerialization dataFromPropertyList:(id)springboardPrefs
 															   format:kCFPropertyListBinaryFormat_v1_0 
 													 errorDescription:&error];
-	
+	NSLog(@"%@", [self springboardPrefsPath]);
 	[plist writeToFile:[self springboardPrefsPath] atomically:YES];
 }
 
@@ -296,21 +307,22 @@ enum {
 					  @"FakeWeather",
 					  @"FakeYouTube",
 					  nil];
+	
+	NSString *srcDir = [[NSBundle mainBundle] resourcePath];
+	NSString *dstDir = [[NSString stringWithFormat: @"~/Library/Application Support/iPhone Simulator/%@/Applications", [self iosVersion]] stringByExpandingTildeInPath];
+	[[NSFileManager defaultManager] createDirectoryAtPath:dstDir withIntermediateDirectories:YES attributes:nil error:nil];
+	
 	for(NSString *item in items)
 	{
-		NSString *srcDir = [[NSBundle mainBundle] resourcePath];
 		NSString *src = [srcDir stringByAppendingPathComponent:item];
-		NSString *dst = [[@"~/Library/Application Support/iPhone Simulator/User/Applications" stringByExpandingTildeInPath] stringByAppendingPathComponent:item];
-		NSString *src_sb = [src stringByAppendingPathExtension:@"sb"];
-		NSString *dst_sb = [dst stringByAppendingPathExtension:@"sb"];
-
+		NSString *dst = [dstDir stringByAppendingPathComponent:item];
+		
+		[[NSFileManager defaultManager] removeItemAtPath:dst error:nil];
 		if(![[NSFileManager defaultManager] copyItemAtPath:src toPath:dst error:&error])
 		{
 			NSLog(@"copyItemAtPath error %@", error);
-		}
-		if(![[NSFileManager defaultManager] copyItemAtPath:src_sb toPath:dst_sb error:&error])
-		{
-			NSLog(@"copyItemAtPath error %@", error);
+			NSLog(@"src: %@", src);
+			NSLog(@"dst: %@", dst);
 		}
 	}
 	
