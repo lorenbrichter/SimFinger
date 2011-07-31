@@ -45,7 +45,7 @@ void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef elemen
 {
 	if(AXAPIEnabled())
 	{
-		NSArray *applications = [[NSWorkspace sharedWorkspace] launchedApplications];
+		NSArray *applications = [[NSWorkspace sharedWorkspace] runningApplications];
 		
 		for(NSDictionary *application in applications)
 		{
@@ -160,11 +160,11 @@ void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef elemen
 				} else {
 					if (!landscape) {
 						point.x = 138;
+                        point.y = screenRect.size.height - size.height - 156;
 					} else {
 						point.x = 157;
-					}
-					
-					point.y = screenRect.size.height - size.height - 156;
+                        point.y = screenRect.size.height - size.height - 138;
+					}					
 				}
 				AXValueRef pointValue = AXValueCreate(kAXValueCGPointType, &point);
 				
