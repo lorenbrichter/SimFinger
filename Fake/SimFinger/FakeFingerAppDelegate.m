@@ -47,13 +47,13 @@ void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef elemen
 	{
 		NSArray *applications = [[NSWorkspace sharedWorkspace] runningApplications];
 		
-		for(NSDictionary *application in applications)
+		for(NSRunningApplication *application in applications)
 		{
-			if([[application objectForKey:@"NSApplicationName"] isEqualToString:@"iOS Simulator"])
+			if([application.localizedName isEqualToString:@"iOS Simulator"])
 			{
-				pid_t pid = (pid_t)[[application objectForKey:@"NSApplicationProcessIdentifier"] integerValue];
+				pid_t pid = application.processIdentifier;
 				
-				[[NSWorkspace sharedWorkspace] launchAppWithBundleIdentifier:[application objectForKey:@"NSApplicationBundleIdentifier"] 
+				[[NSWorkspace sharedWorkspace] launchAppWithBundleIdentifier:application.bundleIdentifier
 																	 options:NSWorkspaceLaunchDefault 
 											  additionalEventParamDescriptor:nil 
 															launchIdentifier:nil];
