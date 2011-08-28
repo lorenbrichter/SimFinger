@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#include <ApplicationServices/ApplicationServices.h>
 
 @interface FakeFingerAppDelegate : NSObject
 {
@@ -41,5 +42,7 @@
 - (IBAction)saveSetText:(id)sender;
 
 - (IBAction)installFakeApps:(id)sender;
+
+-(void) hideTheCursor;
 
 @end

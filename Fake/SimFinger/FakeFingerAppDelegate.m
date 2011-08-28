@@ -452,7 +452,29 @@ CGEventRef tapCallBack(CGEventTapProxy proxy, CGEventType type, CGEventRef event
 	
 	[self registerForSimulatorWindowResizedNotification];
 	[self positionSimulatorWindow:nil];
+    [self hideTheCursor];
+    
 	NSLog(@"Repositioned simulator window.");
+}
+
+-(void) hideTheCursor
+{
+    // The not so hacky way:
+//    CGDirectDisplayID myId = CGMainDisplayID();
+//    CGDisplayHideCursor(kCGDirectMainDisplay);
+//    BOOL isCursorVisible = CGCursorIsVisible();
+    
+    // The hacky way:
+    void CGSSetConnectionProperty(int, int, CFStringRef, CFBooleanRef);
+    int _CGSDefaultConnection();
+    CFStringRef propertyString;
+    
+    // Hack to make background cursor setting work
+    propertyString = CFStringCreateWithCString(NULL, "SetsCursorInBackground", kCFStringEncodingUTF8);
+    CGSSetConnectionProperty(_CGSDefaultConnection(), _CGSDefaultConnection(), propertyString, kCFBooleanTrue);
+    CFRelease(propertyString);
+    // Hide the cursor and wait
+    CGDisplayHideCursor(kCGDirectMainDisplay);
 }
 
 @end
