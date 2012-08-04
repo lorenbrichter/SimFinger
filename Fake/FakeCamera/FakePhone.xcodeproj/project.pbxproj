@@ -14,6 +14,7 @@
 		5E4D851D0F4555F600E02F03 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E4D851C0F4555F600E02F03 /* MainWindow.xib */; };
 		5E4D85200F4555FF00E02F03 /* FakePhoneAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E4D851F0F4555FF00E02F03 /* FakePhoneAppDelegate.m */; };
 		5EA7CDB00F43E6E800DE24FB /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EA7CDAF0F43E6E800DE24FB /* Icon.png */; };
+		FAFB5FA115CDBE7900517738 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAFB5FA015CDBE7900517738 /* Icon@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		5E4D851F0F4555FF00E02F03 /* FakePhoneAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FakePhoneAppDelegate.m; path = ../FakeAppShared/FakePhoneAppDelegate.m; sourceTree = SOURCE_ROOT; };
 		5EA7CDAF0F43E6E800DE24FB /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.info-plist"; sourceTree = "<group>"; };
+		FAFB5FA015CDBE7900517738 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				5E4D851C0F4555F600E02F03 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				5EA7CDAF0F43E6E800DE24FB /* Icon.png */,
+				FAFB5FA015CDBE7900517738 /* Icon@2x.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 			files = (
 				5EA7CDB00F43E6E800DE24FB /* Icon.png in Resources */,
 				5E4D851D0F4555F600E02F03 /* MainWindow.xib in Resources */,
+				FAFB5FA115CDBE7900517738 /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
