@@ -27,7 +27,7 @@ void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef elemen
 	AXUIElementRef frontWindow = NULL;
 	AXError err = AXUIElementCopyAttributeValue( simulatorApp, kAXFocusedWindowAttribute, (CFTypeRef *) &frontWindow );
 	if ( err != kAXErrorSuccess ) return;
-
+    
 	AXObserverRef observer = NULL;
 	pid_t pid;
 	AXUIElementGetPid(simulatorApp, &pid);
@@ -36,9 +36,9 @@ void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef elemen
 	
 	AXObserverAddNotification( observer, frontWindow, kAXResizedNotification, self );
 	AXObserverAddNotification( observer, frontWindow, kAXMovedNotification, self );
-
+    
 	CFRunLoopAddSource( [[NSRunLoop currentRunLoop] getCFRunLoop],  AXObserverGetRunLoopSource(observer),  kCFRunLoopDefaultMode );
-		
+    
 }
 
 - (AXUIElementRef)simulatorApplication
@@ -54,8 +54,8 @@ void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef elemen
 				pid_t pid = application.processIdentifier;
 				
 				[[NSWorkspace sharedWorkspace] launchAppWithBundleIdentifier:application.bundleIdentifier
-																	 options:NSWorkspaceLaunchDefault 
-											  additionalEventParamDescriptor:nil 
+																	 options:NSWorkspaceLaunchDefault
+											  additionalEventParamDescriptor:nil
 															launchIdentifier:nil];
 				
 				AXUIElementRef element = AXUIElementCreateApplication(pid);
@@ -100,11 +100,14 @@ void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef elemen
 			
 			BOOL supportedSize = NO;
 			BOOL iPadMode = NO;
+            BOOL iPhone5Mode = NO;
 			BOOL landscape = NO;
 			int iPhoneWidth = 368;
 			int iPhoneHeight = 716;
 			int iPadWidth = 852;
 			int iPadHeight = 1108;
+            int iPhone5Width = 320;
+            int iPhone5Height = 590;
 			
 			if((int)size.width == iPhoneWidth && (int)size.height == iPhoneHeight) {
 				[hardwareOverlay setContentSize:NSMakeSize(634, 985)];
@@ -142,7 +145,16 @@ void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef elemen
 				supportedSize = YES;
 				iPadMode = YES;
 				landscape = YES;
-			}
+			} else if ((int)size.width == iPhone5Width && (int)size.height == iPhone5Height) {
+                [hardwareOverlay setContentSize:NSMakeSize(634, 985)];
+				[hardwareOverlay setBackgroundColor:[NSColor colorWithPatternImage:[NSImage imageNamed:@"iPhone5Frame"]]];
+				
+				[fadeOverlay setContentSize:NSMakeSize(634,985)];
+				[fadeOverlay setBackgroundColor:[NSColor colorWithPatternImage:[NSImage imageNamed:@"FadeFrame"]]];
+                
+                supportedSize = YES;
+				iPhone5Mode = YES;
+            }
 			
 			if(supportedSize) {
 				Boolean settable;
@@ -150,7 +162,10 @@ void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef elemen
 				
 				CGPoint point;
 				if(!iPadMode) {
-					if(!landscape) {
+                    if(iPhone5Mode) {
+                        point.x = 159;
+                        point.y = 281;
+                    } else if(!landscape) {
 						point.x = 121+9;
 						point.y = screenRect.size.height - size.height - 135 - 13;
 					} else {
@@ -164,12 +179,12 @@ void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef elemen
 					} else {
 						point.x = 157;
                         point.y = screenRect.size.height - size.height - 138;
-					}					
+					}
 				}
 				AXValueRef pointValue = AXValueCreate(kAXValueCGPointType, &point);
 				
 				AXUIElementSetAttributeValue(subElement, kAXPositionAttribute, (CFTypeRef)pointValue);
-			}							
+			}
 			
 		}
 	}
@@ -200,7 +215,7 @@ void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef elemen
 {
 	NSString *error;
 	NSData *plist = [NSPropertyListSerialization dataFromPropertyList:(id)springboardPrefs
-															   format:kCFPropertyListBinaryFormat_v1_0 
+															   format:kCFPropertyListBinaryFormat_v1_0
 													 errorDescription:&error];
 	NSLog(@"%@", [self springboardPrefsPath]);
 	[plist writeToFile:[self springboardPrefsPath] atomically:YES];
@@ -286,8 +301,8 @@ enum {
 {
 	NSError *error;
 	NSArray *items = [NSArray arrayWithObjects:
-					  @"FakeAppStore", 
-					  @"FakeCalculator", 
+					  @"FakeAppStore",
+					  @"FakeCalculator",
 					  @"FakeCalendar",
 					  @"FakeCamera",
 					  @"FakeClock",
@@ -432,17 +447,17 @@ CGEventRef tapCallBack(CGEventTapProxy proxy, CGEventType type, CGEventRef event
 	[fadeOverlay setLevel:NSFloatingWindowLevel + 1];
 	[fadeOverlay orderFront:nil];
 	
-	CGEventMask mask =	CGEventMaskBit(kCGEventLeftMouseDown) | 
-						CGEventMaskBit(kCGEventLeftMouseUp) | 
-						CGEventMaskBit(kCGEventLeftMouseDragged) | 
-						CGEventMaskBit(kCGEventMouseMoved);
-
+	CGEventMask mask =	CGEventMaskBit(kCGEventLeftMouseDown) |
+    CGEventMaskBit(kCGEventLeftMouseUp) |
+    CGEventMaskBit(kCGEventLeftMouseDragged) |
+    CGEventMaskBit(kCGEventMouseMoved);
+    
 	CFMachPortRef tap = CGEventTapCreate(kCGAnnotatedSessionEventTap,
-									kCGTailAppendEventTap,
-									kCGEventTapOptionListenOnly,
-									mask,
-									tapCallBack,
-									self);
+                                         kCGTailAppendEventTap,
+                                         kCGEventTapOptionListenOnly,
+                                         mask,
+                                         tapCallBack,
+                                         self);
 	
 	CFRunLoopSourceRef runLoopSource = CFMachPortCreateRunLoopSource(NULL, tap, 0);
 	CFRunLoopAddSource(CFRunLoopGetMain(), runLoopSource, kCFRunLoopCommonModes);
@@ -460,9 +475,9 @@ CGEventRef tapCallBack(CGEventTapProxy proxy, CGEventType type, CGEventRef event
 -(void) hideTheCursor
 {
     // The not so hacky way:
-//    CGDirectDisplayID myId = CGMainDisplayID();
-//    CGDisplayHideCursor(kCGDirectMainDisplay);
-//    BOOL isCursorVisible = CGCursorIsVisible();
+    //    CGDirectDisplayID myId = CGMainDisplayID();
+    //    CGDisplayHideCursor(kCGDirectMainDisplay);
+    //    BOOL isCursorVisible = CGCursorIsVisible();
     
     // The hacky way:
     void CGSSetConnectionProperty(int, int, CFStringRef, CFBooleanRef);
