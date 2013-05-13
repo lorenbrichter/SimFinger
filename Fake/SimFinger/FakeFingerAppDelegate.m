@@ -49,7 +49,7 @@ void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef elemen
 		
 		for(NSRunningApplication *application in applications)
 		{
-			if([application.localizedName isEqualToString:@"iOS Simulator"])
+			if([application.localizedName isEqualToString:NSLocalizedString(@"iOS Simulator", nil)])
 			{
 				pid_t pid = application.processIdentifier;
 				
@@ -164,10 +164,10 @@ void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef elemen
 				if(!iPadMode) {
                     if(iPhone5Mode) {
                         point.x = 159;
-                        point.y = 281;
+                        point.y = 113;
                     } else if(!landscape) {
 						point.x = 121+9;
-						point.y = screenRect.size.height - size.height - 135 - 13;
+						point.y = screenRect.size.height - size.height - 135 - 13 + 110;
 					} else {
 						point.x = 121+9+4;
 						point.y = screenRect.size.height - size.height - 135 - 13 + 4;
@@ -192,7 +192,7 @@ void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef elemen
 
 - (NSString *)iosVersion
 {
-	return @"4.0.2";
+	return @"6.1";
 }
 
 - (NSString *)springboardPrefsPath
@@ -420,7 +420,7 @@ CGEventRef tapCallBack(CGEventTapProxy proxy, CGEventType type, CGEventRef event
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification
 {
-	hardwareOverlay = [[NSWindow alloc] initWithContentRect:NSMakeRect(0, 0, 634, 985) styleMask:NSBorderlessWindowMask backing:NSBackingStoreBuffered defer:NO];
+	hardwareOverlay = [[NSWindow alloc] initWithContentRect:NSMakeRect(0, -112, 634, 985) styleMask:NSBorderlessWindowMask backing:NSBackingStoreBuffered defer:NO];
 	[hardwareOverlay setAlphaValue:1.0];
 	[hardwareOverlay setOpaque:NO];
 	[hardwareOverlay setBackgroundColor:[NSColor colorWithPatternImage:[NSImage imageNamed:@"iPhoneFrame"]]];

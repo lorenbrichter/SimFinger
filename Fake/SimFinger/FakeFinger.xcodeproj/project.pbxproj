@@ -60,6 +60,7 @@
 		C9FB62C412480F03001AD88A /* iPadFrame.png in Resources */ = {isa = PBXBuildFile; fileRef = C9FB62C212480F03001AD88A /* iPadFrame.png */; };
 		C9FB63001249139D001AD88A /* iPadFadeLandscape.png in Resources */ = {isa = PBXBuildFile; fileRef = C9FB62FE1249139D001AD88A /* iPadFadeLandscape.png */; };
 		C9FB63011249139D001AD88A /* iPadFrameLandscape_right.png in Resources */ = {isa = PBXBuildFile; fileRef = C9FB62FF1249139D001AD88A /* iPadFrameLandscape_right.png */; };
+		D540ECBC1740FA1D0073C22D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D540ECBE1740FA1D0073C22D /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -123,6 +124,9 @@
 		C9FB62C212480F03001AD88A /* iPadFrame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPadFrame.png; sourceTree = "<group>"; };
 		C9FB62FE1249139D001AD88A /* iPadFadeLandscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPadFadeLandscape.png; sourceTree = "<group>"; };
 		C9FB62FF1249139D001AD88A /* iPadFrameLandscape_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPadFrameLandscape_right.png; sourceTree = "<group>"; };
+		D540ECBD1740FA1D0073C22D /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D540ECBF1740FA4F0073C22D /* es */ = {isa = PBXFileReference; lastKnownFileType = file; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D540ECC01740FA570073C22D /* es-ES */ = {isa = PBXFileReference; lastKnownFileType = file; name = "es-ES"; path = "es-ES.lproj/Localizable.strings"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +164,7 @@
 		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0CAB1BBE140A77F600567611 /* ApplicationServices.framework */,
 				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
 				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
 				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
@@ -178,7 +183,6 @@
 		29B97314FDCFA39411CA2CEA /* FakeFinger */ = {
 			isa = PBXGroup;
 			children = (
-				0CAB1BBE140A77F600567611 /* ApplicationServices.framework */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -193,6 +197,7 @@
 			children = (
 				32CA4F630368D1EE00C91783 /* FakeFinger_Prefix.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
+				D540ECBE1740FA1D0073C22D /* Localizable.strings */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -308,6 +313,8 @@
 				Japanese,
 				French,
 				German,
+				es,
+				"es-ES",
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* FakeFinger */;
 			projectDirPath = "";
@@ -371,6 +378,7 @@
 				C9FB63001249139D001AD88A /* iPadFadeLandscape.png in Resources */,
 				C9FB63011249139D001AD88A /* iPadFrameLandscape_right.png in Resources */,
 				ABF1C2591653F8E5000BE6CA /* iPhone5Frame.png in Resources */,
+				D540ECBC1740FA1D0073C22D /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,6 +411,16 @@
 				1DDD58150DA1D0A300B32029 /* English */,
 			);
 			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		D540ECBE1740FA1D0073C22D /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D540ECBD1740FA1D0073C22D /* en */,
+				D540ECBF1740FA4F0073C22D /* es */,
+				D540ECC01740FA570073C22D /* es-ES */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -448,6 +466,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
@@ -460,6 +479,7 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				SDKROOT = macosx;
 			};
 			name = Release;
