@@ -164,7 +164,7 @@ void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef elemen
 				if(!iPadMode) {
                     if(iPhone5Mode) {
                         point.x = 159;
-                        point.y = 281;
+                        point.y = screenRect.size.height - size.height - 209;
                     } else if(!landscape) {
 						point.x = 121+9;
 						point.y = screenRect.size.height - size.height - 135 - 13;
@@ -192,7 +192,7 @@ void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef elemen
 
 - (NSString *)iosVersion
 {
-	return @"4.0.2";
+	return @"6.1"; // Latest iOS version, for applying preferences.
 }
 
 - (NSString *)springboardPrefsPath
