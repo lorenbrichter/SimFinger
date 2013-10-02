@@ -9,6 +9,8 @@
 #import "FakeFingerAppDelegate.h"
 #import <Carbon/Carbon.h>
 
+static NSString *kiOSSimBundleID = @"com.apple.iphonesimulator";
+
 void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef element, CFStringRef notificationName, void * contextData)
 {
     FakeFingerAppDelegate * delegate= (FakeFingerAppDelegate *) contextData;
@@ -43,24 +45,17 @@ void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef elemen
 
 - (AXUIElementRef)simulatorApplication
 {
+  BOOL isSimulatorRunning = NO;
 	if(AXAPIEnabled())
 	{
 		NSArray *applications = [[NSWorkspace sharedWorkspace] runningApplications];
 		
 		for(NSRunningApplication *application in applications)
 		{
-			if([application.localizedName isEqualToString:@"iOS Simulator"])
+			if([application.bundleIdentifier isEqualToString:kiOSSimBundleID])
 			{
+        isSimulatorRunning = YES;
 				pid_t pid = application.processIdentifier;
-
-				// Not sure why this is getting launched, since it's already running?
-        // Commenting out, because otherwise this causes my app to try & open a second iOS Simulator
-        // & show error alerts.
-        //				[[NSWorkspace sharedWorkspace] launchAppWithBundleIdentifier:application.bundleIdentifier
-        //																	 options:NSWorkspaceLaunchDefault
-        //											  additionalEventParamDescriptor:nil
-        //															launchIdentifier:nil];
-
 				AXUIElementRef element = AXUIElementCreateApplication(pid);
 				return element;
 			}
@@ -68,6 +63,13 @@ void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef elemen
 	} else {
 		NSRunAlertPanel(@"Universal Access Disabled", @"You must enable access for assistive devices in the System Preferences, under Universal Access.", @"OK", nil, nil, nil);
 	}
+  if (!isSimulatorRunning) {
+    // Launch the simulator if it isn't running
+    [[NSWorkspace sharedWorkspace] launchAppWithBundleIdentifier:kiOSSimBundleID
+                               options:NSWorkspaceLaunchDefault
+                    additionalEventParamDescriptor:nil
+                          launchIdentifier:nil];
+  }
 	NSRunAlertPanel(@"Couldn't find Simulator", @"Couldn't find iOS Simulator.", @"OK", nil, nil, nil);
 	return NULL;
 }
