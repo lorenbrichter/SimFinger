@@ -5,12 +5,13 @@
   - If you want to build from code, launch the [SimFinger.xcodeproj](https://github.com/jonchui/SimFinger/tree/master/Fake/SimFinger/FakeFinger.xcodeproj)
   - If you want a compiled version, download [SimFingerApp.zip](https://github.com/jonchui/SimFinger/blob/master/SimFingerApp.zip)
 
-#Fixes
+#Fixes to atebits version:
 - Removed cursor from ever being shown (before, it was shown on the first click)
 - Removed annoying popup, because of attempt to open simulator again.
 - Added steps on how to use
 
-// ORIGINAL README BELOW
+
+# ORIGINAL README BELOW
 
 Step 1.
 
