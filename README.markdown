@@ -1,9 +1,9 @@
 #How to use:
-- 1) Launch iOS Simulator
-- 2) Make sure the simulator's scale (Window | Scale) fits SimFinger. For retina devices, scale @ 50%. For non-retina, just use 100% 
-- 3) Launch SimFinger
-  - If you want to build from code, launch the (SimFinger.xcodeproj)[https://github.com/jonchui/SimFinger/tree/master/Fake/SimFinger/FakeFinger.xcodeproj]
-  - If you want a compiled version, download (SimFingerApp.zip)[https://github.com/jonchui/SimFinger/blob/master/SimFingerApp.zip]
+1. Launch iOS Simulator
+2. Make sure the simulator's scale (Window | Scale) fits SimFinger. For retina devices, scale @ 50%. For non-retina, just use 100% 
+3. Launch SimFinger
+  - If you want to build from code, launch the [SimFinger.xcodeproj](https://github.com/jonchui/SimFinger/tree/master/Fake/SimFinger/FakeFinger.xcodeproj)
+  - If you want a compiled version, download [SimFingerApp.zip](https://github.com/jonchui/SimFinger/blob/master/SimFingerApp.zip)
 
 #Fixes
 - Removed cursor from ever being shown (before, it was shown on the first click)
