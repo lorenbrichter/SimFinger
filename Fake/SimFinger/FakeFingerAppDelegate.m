@@ -52,12 +52,15 @@ void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef elemen
 			if([application.localizedName isEqualToString:@"iOS Simulator"])
 			{
 				pid_t pid = application.processIdentifier;
-				
-				[[NSWorkspace sharedWorkspace] launchAppWithBundleIdentifier:application.bundleIdentifier
-																	 options:NSWorkspaceLaunchDefault
-											  additionalEventParamDescriptor:nil
-															launchIdentifier:nil];
-				
+
+				// Not sure why this is getting launched, since it's already running?
+        // Commenting out, because otherwise this causes my app to try & open a second iOS Simulator
+        // & show error alerts.
+        //				[[NSWorkspace sharedWorkspace] launchAppWithBundleIdentifier:application.bundleIdentifier
+        //																	 options:NSWorkspaceLaunchDefault
+        //											  additionalEventParamDescriptor:nil
+        //															launchIdentifier:nil];
+
 				AXUIElementRef element = AXUIElementCreateApplication(pid);
 				return element;
 			}
