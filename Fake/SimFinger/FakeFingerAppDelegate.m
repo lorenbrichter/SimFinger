@@ -66,6 +66,8 @@ void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef elemen
 	{
     __block NSRunningApplication *simulatorApplication = [self runningSimulatorApplication];
     if (simulatorApplication == nil) {
+      // This line is a really ugly, hacky way to get the simulator to resize upon first loading.
+      // If you can fix this, do it soon please.
       [self performSelector:@selector(positionSimulatorWindow:) withObject:nil afterDelay:3.0f];
 
       // Launch the simulator if it isn't running
