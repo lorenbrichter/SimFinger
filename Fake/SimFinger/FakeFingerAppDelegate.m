@@ -66,6 +66,8 @@ void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef elemen
 	{
     __block NSRunningApplication *simulatorApplication = [self runningSimulatorApplication];
     if (simulatorApplication == nil) {
+      [self performSelector:@selector(positionSimulatorWindow:) withObject:nil afterDelay:3.0f];
+
       // Launch the simulator if it isn't running
       [[NSWorkspace sharedWorkspace] launchAppWithBundleIdentifier:kiOSSimBundleID
                                                            options:NSWorkspaceLaunchDefault
@@ -87,7 +89,6 @@ void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef elemen
       while (isWaitingForSimulatorToLaunch) {
         [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
       }
-      [self performSelector:@selector(positionSimulatorWindow:) withObject:nil afterDelay:3.0f];
     }
     if (simulatorApplication == nil) {
       NSRunAlertPanel(@"Couldn't find Simulator after launching", @"Couldn't find Simulator after launching.", @"OK", nil, nil, nil);
@@ -499,12 +500,6 @@ CGEventRef tapCallBack(CGEventTapProxy proxy, CGEventType type, CGEventRef event
 	
 	CFRelease(runLoopSource);
 	CFRelease(tap);
-
-
-  // Hack if simulator is not running
-  if ([self runningSimulatorApplication] == nil) {
-    [self performSelector:@selector(positionSimulatorWindow:) withObject:nil afterDelay:2.0f];
-  }
 
 	[self registerForSimulatorWindowResizedNotification];
 	[self positionSimulatorWindow:nil];
