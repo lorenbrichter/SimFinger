@@ -10,6 +10,7 @@
 #import <Carbon/Carbon.h>
 
 static NSString *kiOSSimBundleID = @"com.apple.iphonesimulator";
+static NSTimeInterval kTimeoutToLaunchSimulatorSeconds = 10.0f;
 
 void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef element, CFStringRef notificationName, void * contextData)
 {
@@ -43,33 +44,61 @@ void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef elemen
     
 }
 
-- (AXUIElementRef)simulatorApplication
+// Returns nil if there is no iOS Simulator running, otherwise the simulator based on the bundleid
+// kiOSSimBundleID above.
+- (NSRunningApplication *)runningSimulatorApplication
 {
-  BOOL isSimulatorRunning = NO;
-	if(AXAPIEnabled())
-	{
 		NSArray *applications = [[NSWorkspace sharedWorkspace] runningApplications];
-		
+
 		for(NSRunningApplication *application in applications)
 		{
 			if([application.bundleIdentifier isEqualToString:kiOSSimBundleID])
 			{
-        isSimulatorRunning = YES;
-				pid_t pid = application.processIdentifier;
-				AXUIElementRef element = AXUIElementCreateApplication(pid);
-				return element;
+        return application;
 			}
 		}
+  return nil;
+}
+
+- (AXUIElementRef)simulatorApplication
+{
+	if(AXAPIEnabled())
+	{
+    __block NSRunningApplication *simulatorApplication = [self runningSimulatorApplication];
+    if (simulatorApplication == nil) {
+      // Launch the simulator if it isn't running
+      [[NSWorkspace sharedWorkspace] launchAppWithBundleIdentifier:kiOSSimBundleID
+                                                           options:NSWorkspaceLaunchDefault
+                                    additionalEventParamDescriptor:nil
+                                                  launchIdentifier:nil];
+      __block BOOL isWaitingForSimulatorToLaunch = YES;
+      // Wait in background for simulator to launch.
+      NSDate *startTime = [NSDate date];
+      dispatch_async(dispatch_get_current_queue(), ^{
+        while (simulatorApplication == nil) {
+          simulatorApplication = [self runningSimulatorApplication];
+          sleep(1);
+          // Just in case, let's timeout after a small interval so we don't stay here forever.
+          if ([[NSDate date] timeIntervalSinceDate:startTime] > kTimeoutToLaunchSimulatorSeconds) {
+            isWaitingForSimulatorToLaunch = NO;
+          }
+        }
+      });
+      while (isWaitingForSimulatorToLaunch) {
+        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
+      }
+      [self performSelector:@selector(positionSimulatorWindow:) withObject:nil afterDelay:3.0f];
+    }
+    if (simulatorApplication == nil) {
+      NSRunAlertPanel(@"Couldn't find Simulator after launching", @"Couldn't find Simulator after launching.", @"OK", nil, nil, nil);
+      return NULL;
+    }
+    pid_t pid = simulatorApplication.processIdentifier;
+    AXUIElementRef element = AXUIElementCreateApplication(pid);
+    return element;
 	} else {
 		NSRunAlertPanel(@"Universal Access Disabled", @"You must enable access for assistive devices in the System Preferences, under Universal Access.", @"OK", nil, nil, nil);
 	}
-  if (!isSimulatorRunning) {
-    // Launch the simulator if it isn't running
-    [[NSWorkspace sharedWorkspace] launchAppWithBundleIdentifier:kiOSSimBundleID
-                               options:NSWorkspaceLaunchDefault
-                    additionalEventParamDescriptor:nil
-                          launchIdentifier:nil];
-  }
 	NSRunAlertPanel(@"Couldn't find Simulator", @"Couldn't find iOS Simulator.", @"OK", nil, nil, nil);
 	return NULL;
 }
@@ -470,10 +499,16 @@ CGEventRef tapCallBack(CGEventTapProxy proxy, CGEventType type, CGEventRef event
 	
 	CFRelease(runLoopSource);
 	CFRelease(tap);
-	
+
+
+  // Hack if simulator is not running
+  if ([self runningSimulatorApplication] == nil) {
+    [self performSelector:@selector(positionSimulatorWindow:) withObject:nil afterDelay:2.0f];
+  }
+
 	[self registerForSimulatorWindowResizedNotification];
 	[self positionSimulatorWindow:nil];
-    hideTheCursor();
+  hideTheCursor();
     
 	NSLog(@"Repositioned simulator window.");
 }
