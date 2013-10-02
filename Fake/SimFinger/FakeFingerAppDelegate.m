@@ -415,6 +415,7 @@ CGEventRef tapCallBack(CGEventTapProxy proxy, CGEventType type, CGEventRef event
 			[delegate mouseMoved];
 			break;
 	}
+  hideTheCursor();
 	return event;
 }
 
@@ -467,12 +468,12 @@ CGEventRef tapCallBack(CGEventTapProxy proxy, CGEventType type, CGEventRef event
 	
 	[self registerForSimulatorWindowResizedNotification];
 	[self positionSimulatorWindow:nil];
-    [self hideTheCursor];
+    hideTheCursor();
     
 	NSLog(@"Repositioned simulator window.");
 }
 
--(void) hideTheCursor
+void hideTheCursor()
 {
     // The not so hacky way:
     //    CGDirectDisplayID myId = CGMainDisplayID();
