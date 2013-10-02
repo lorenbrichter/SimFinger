@@ -1,3 +1,16 @@
+How to use:
+1) Launch iOS Simulator
+2) Make sure the simulator's scale (Window | Scale) fits SimFinger. For retina devices, scale @ 50%. For non-retina, just use 100% 
+3) Launch SimFinger
+
+Fixes
+- Removed cursor from ever being shown (before, it was shown on the first click)
+- Removed annoying popup, because of attempt to open simulator again.
+- Added steps on how to use
+
+
+// ORIGINAL README BELOW
+
 Step 1.
 
 For some background, check out:
