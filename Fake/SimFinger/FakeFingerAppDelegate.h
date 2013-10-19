@@ -43,6 +43,6 @@
 
 - (IBAction)installFakeApps:(id)sender;
 
--(void) hideTheCursor;
+void hideTheCursor();
 
 @end

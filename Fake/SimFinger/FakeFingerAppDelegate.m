@@ -9,6 +9,9 @@
 #import "FakeFingerAppDelegate.h"
 #import <Carbon/Carbon.h>
 
+static NSString *kiOSSimBundleID = @"com.apple.iphonesimulator";
+static NSTimeInterval kTimeoutToLaunchSimulatorSeconds = 10.0f;
+
 void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef element, CFStringRef notificationName, void * contextData)
 {
     FakeFingerAppDelegate * delegate= (FakeFingerAppDelegate *) contextData;
@@ -41,27 +44,61 @@ void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef elemen
     
 }
 
+// Returns nil if there is no iOS Simulator running, otherwise the simulator based on the bundleid
+// kiOSSimBundleID above.
+- (NSRunningApplication *)runningSimulatorApplication
+{
+		NSArray *applications = [[NSWorkspace sharedWorkspace] runningApplications];
+
+		for(NSRunningApplication *application in applications)
+		{
+			if([application.bundleIdentifier isEqualToString:kiOSSimBundleID])
+			{
+        return application;
+			}
+		}
+  return nil;
+}
+
 - (AXUIElementRef)simulatorApplication
 {
 	if(AXAPIEnabled())
 	{
-		NSArray *applications = [[NSWorkspace sharedWorkspace] runningApplications];
-		
-		for(NSRunningApplication *application in applications)
-		{
-			if([application.localizedName isEqualToString:@"iOS Simulator"])
-			{
-				pid_t pid = application.processIdentifier;
-				
-				[[NSWorkspace sharedWorkspace] launchAppWithBundleIdentifier:application.bundleIdentifier
-																	 options:NSWorkspaceLaunchDefault
-											  additionalEventParamDescriptor:nil
-															launchIdentifier:nil];
-				
-				AXUIElementRef element = AXUIElementCreateApplication(pid);
-				return element;
-			}
-		}
+    __block NSRunningApplication *simulatorApplication = [self runningSimulatorApplication];
+    if (simulatorApplication == nil) {
+      // This line is a really ugly, hacky way to get the simulator to resize upon first loading.
+      // If you can fix this, do it soon please.
+      [self performSelector:@selector(positionSimulatorWindow:) withObject:nil afterDelay:3.0f];
+
+      // Launch the simulator if it isn't running
+      [[NSWorkspace sharedWorkspace] launchAppWithBundleIdentifier:kiOSSimBundleID
+                                                           options:NSWorkspaceLaunchDefault
+                                    additionalEventParamDescriptor:nil
+                                                  launchIdentifier:nil];
+      __block BOOL isWaitingForSimulatorToLaunch = YES;
+      // Wait in background for simulator to launch.
+      NSDate *startTime = [NSDate date];
+      dispatch_async(dispatch_get_current_queue(), ^{
+        while (simulatorApplication == nil) {
+          simulatorApplication = [self runningSimulatorApplication];
+          sleep(1);
+          // Just in case, let's timeout after a small interval so we don't stay here forever.
+          if ([[NSDate date] timeIntervalSinceDate:startTime] > kTimeoutToLaunchSimulatorSeconds) {
+            isWaitingForSimulatorToLaunch = NO;
+          }
+        }
+      });
+      while (isWaitingForSimulatorToLaunch) {
+        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
+      }
+    }
+    if (simulatorApplication == nil) {
+      NSRunAlertPanel(@"Couldn't find Simulator after launching", @"Couldn't find Simulator after launching.", @"OK", nil, nil, nil);
+      return NULL;
+    }
+    pid_t pid = simulatorApplication.processIdentifier;
+    AXUIElementRef element = AXUIElementCreateApplication(pid);
+    return element;
 	} else {
 		NSRunAlertPanel(@"Universal Access Disabled", @"You must enable access for assistive devices in the System Preferences, under Universal Access.", @"OK", nil, nil, nil);
 	}
@@ -415,6 +452,7 @@ CGEventRef tapCallBack(CGEventTapProxy proxy, CGEventType type, CGEventRef event
 			[delegate mouseMoved];
 			break;
 	}
+  hideTheCursor();
 	return event;
 }
 
@@ -464,15 +502,15 @@ CGEventRef tapCallBack(CGEventTapProxy proxy, CGEventType type, CGEventRef event
 	
 	CFRelease(runLoopSource);
 	CFRelease(tap);
-	
+
 	[self registerForSimulatorWindowResizedNotification];
 	[self positionSimulatorWindow:nil];
-    [self hideTheCursor];
+  hideTheCursor();
     
 	NSLog(@"Repositioned simulator window.");
 }
 
--(void) hideTheCursor
+void hideTheCursor()
 {
     // The not so hacky way:
     //    CGDirectDisplayID myId = CGMainDisplayID();
