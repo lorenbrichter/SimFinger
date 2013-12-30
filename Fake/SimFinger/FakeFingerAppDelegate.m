@@ -43,7 +43,10 @@ void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef elemen
 
 - (AXUIElementRef)simulatorApplication
 {
-	if(AXAPIEnabled())
+	NSDictionary *options = @{(id)kAXTrustedCheckOptionPrompt: @YES};
+	BOOL accessibilityEnabled = AXIsProcessTrustedWithOptions((CFDictionaryRef)options);
+	
+	if(accessibilityEnabled == YES)
 	{
 		NSArray *applications = [[NSWorkspace sharedWorkspace] runningApplications];
 		
