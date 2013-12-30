@@ -195,7 +195,7 @@ void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef elemen
 
 - (NSString *)iosVersion
 {
-	return @"6.1"; // Latest iOS version, for applying preferences.
+	return @"7.0.3"; // Latest iOS version, for applying preferences.
 }
 
 - (NSString *)springboardPrefsPath

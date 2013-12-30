@@ -2,7 +2,7 @@
 
 build() {
 	cd fake$1
-	xcodebuild -configuration Debug -sdk iphonesimulator4.2
+	xcodebuild -configuration Debug -sdk iphonesimulator7.0
 	if [ "$2" ]
 	then
 	mkdir -p "../SimFinger/SimAppCollection/FakeApps/Fake$1/$2.app"
