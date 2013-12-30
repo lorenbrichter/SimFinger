@@ -306,21 +306,18 @@ enum {
 	NSArray *items = [NSArray arrayWithObjects:
 					  @"FakeAppStore",
 					  @"FakeCalculator",
-					  @"FakeCalendar",
 					  @"FakeCamera",
 					  @"FakeClock",
                       @"FakeCompass",
 					  @"FakeiPod",
 					  @"FakeiTunes",
 					  @"FakeMail",
-					  @"FakeMaps",
 					  @"FakeNotes",
 					  @"FakePhone",
 					  @"FakeStocks",
 					  @"FakeText",
                       @"FakeVoiceMemos",
 					  @"FakeWeather",
-					  @"FakeYouTube",
 					  nil];
 	
 	NSString *srcDir = [[NSBundle mainBundle] resourcePath];
