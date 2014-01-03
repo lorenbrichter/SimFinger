@@ -10,36 +10,18 @@
 		0CAB1BBF140A77F600567611 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CAB1BBE140A77F600567611 /* ApplicationServices.framework */; };
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		2B4EC09B10301F3800042E09 /* FadeFrameLandscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B4EC09A10301F3800042E09 /* FadeFrameLandscape.png */; };
-		5E4D86630F45EC4700E02F03 /* FakeAppStore in Resources */ = {isa = PBXBuildFile; fileRef = 5E4D86270F45EC4700E02F03 /* FakeAppStore */; };
 		5E4D86640F45EC4700E02F03 /* FakeAppStore.sb in Resources */ = {isa = PBXBuildFile; fileRef = 5E4D862A0F45EC4700E02F03 /* FakeAppStore.sb */; };
-		5E4D86650F45EC4700E02F03 /* FakeCalculator in Resources */ = {isa = PBXBuildFile; fileRef = 5E4D862B0F45EC4700E02F03 /* FakeCalculator */; };
 		5E4D86660F45EC4700E02F03 /* FakeCalculator.sb in Resources */ = {isa = PBXBuildFile; fileRef = 5E4D862E0F45EC4700E02F03 /* FakeCalculator.sb */; };
-		5E4D86670F45EC4700E02F03 /* FakeCalendar in Resources */ = {isa = PBXBuildFile; fileRef = 5E4D862F0F45EC4700E02F03 /* FakeCalendar */; };
-		5E4D86680F45EC4700E02F03 /* FakeCalendar.sb in Resources */ = {isa = PBXBuildFile; fileRef = 5E4D86320F45EC4700E02F03 /* FakeCalendar.sb */; };
-		5E4D86690F45EC4700E02F03 /* FakeCamera in Resources */ = {isa = PBXBuildFile; fileRef = 5E4D86330F45EC4700E02F03 /* FakeCamera */; };
 		5E4D866A0F45EC4700E02F03 /* FakeCamera.sb in Resources */ = {isa = PBXBuildFile; fileRef = 5E4D86360F45EC4700E02F03 /* FakeCamera.sb */; };
-		5E4D866B0F45EC4700E02F03 /* FakeClock in Resources */ = {isa = PBXBuildFile; fileRef = 5E4D86370F45EC4700E02F03 /* FakeClock */; };
 		5E4D866C0F45EC4700E02F03 /* FakeClock.sb in Resources */ = {isa = PBXBuildFile; fileRef = 5E4D863A0F45EC4700E02F03 /* FakeClock.sb */; };
-		5E4D866D0F45EC4700E02F03 /* FakeiPod in Resources */ = {isa = PBXBuildFile; fileRef = 5E4D863B0F45EC4700E02F03 /* FakeiPod */; };
 		5E4D866E0F45EC4700E02F03 /* FakeiPod.sb in Resources */ = {isa = PBXBuildFile; fileRef = 5E4D863E0F45EC4700E02F03 /* FakeiPod.sb */; };
-		5E4D866F0F45EC4700E02F03 /* FakeiTunes in Resources */ = {isa = PBXBuildFile; fileRef = 5E4D863F0F45EC4700E02F03 /* FakeiTunes */; };
 		5E4D86700F45EC4700E02F03 /* FakeiTunes.sb in Resources */ = {isa = PBXBuildFile; fileRef = 5E4D86420F45EC4700E02F03 /* FakeiTunes.sb */; };
-		5E4D86710F45EC4700E02F03 /* FakeMail in Resources */ = {isa = PBXBuildFile; fileRef = 5E4D86430F45EC4700E02F03 /* FakeMail */; };
 		5E4D86720F45EC4700E02F03 /* FakeMail.sb in Resources */ = {isa = PBXBuildFile; fileRef = 5E4D86460F45EC4700E02F03 /* FakeMail.sb */; };
-		5E4D86730F45EC4700E02F03 /* FakeMaps in Resources */ = {isa = PBXBuildFile; fileRef = 5E4D86470F45EC4700E02F03 /* FakeMaps */; };
-		5E4D86740F45EC4700E02F03 /* FakeMaps.sb in Resources */ = {isa = PBXBuildFile; fileRef = 5E4D864A0F45EC4700E02F03 /* FakeMaps.sb */; };
-		5E4D86750F45EC4700E02F03 /* FakeNotes in Resources */ = {isa = PBXBuildFile; fileRef = 5E4D864B0F45EC4700E02F03 /* FakeNotes */; };
 		5E4D86760F45EC4700E02F03 /* FakeNotes.sb in Resources */ = {isa = PBXBuildFile; fileRef = 5E4D864E0F45EC4700E02F03 /* FakeNotes.sb */; };
-		5E4D86770F45EC4700E02F03 /* FakePhone in Resources */ = {isa = PBXBuildFile; fileRef = 5E4D864F0F45EC4700E02F03 /* FakePhone */; };
 		5E4D86780F45EC4700E02F03 /* FakePhone.sb in Resources */ = {isa = PBXBuildFile; fileRef = 5E4D86520F45EC4700E02F03 /* FakePhone.sb */; };
-		5E4D86790F45EC4700E02F03 /* FakeStocks in Resources */ = {isa = PBXBuildFile; fileRef = 5E4D86530F45EC4700E02F03 /* FakeStocks */; };
 		5E4D867A0F45EC4700E02F03 /* FakeStocks.sb in Resources */ = {isa = PBXBuildFile; fileRef = 5E4D86560F45EC4700E02F03 /* FakeStocks.sb */; };
-		5E4D867B0F45EC4700E02F03 /* FakeText in Resources */ = {isa = PBXBuildFile; fileRef = 5E4D86570F45EC4700E02F03 /* FakeText */; };
 		5E4D867C0F45EC4700E02F03 /* FakeText.sb in Resources */ = {isa = PBXBuildFile; fileRef = 5E4D865A0F45EC4700E02F03 /* FakeText.sb */; };
-		5E4D867D0F45EC4700E02F03 /* FakeWeather in Resources */ = {isa = PBXBuildFile; fileRef = 5E4D865B0F45EC4700E02F03 /* FakeWeather */; };
 		5E4D867E0F45EC4700E02F03 /* FakeWeather.sb in Resources */ = {isa = PBXBuildFile; fileRef = 5E4D865E0F45EC4700E02F03 /* FakeWeather.sb */; };
-		5E4D867F0F45EC4700E02F03 /* FakeYouTube in Resources */ = {isa = PBXBuildFile; fileRef = 5E4D865F0F45EC4700E02F03 /* FakeYouTube */; };
-		5E4D86800F45EC4700E02F03 /* FakeYouTube.sb in Resources */ = {isa = PBXBuildFile; fileRef = 5E4D86620F45EC4700E02F03 /* FakeYouTube.sb */; };
 		5E8B471B10504F9F00DF6DFB /* iPhoneFrameLandscape_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E8B471910504F9F00DF6DFB /* iPhoneFrameLandscape_right.png */; };
 		5EA7CD990F43CCE000DE24FB /* FakeFingerAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA7CD980F43CCE000DE24FB /* FakeFingerAppDelegate.m */; };
 		5EA7CEF00F43EECC00DE24FB /* Hover.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EA7CEEF0F43EECC00DE24FB /* Hover.png */; };
@@ -48,9 +30,7 @@
 		5EA7CF300F43FAAA00DE24FB /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 5EA7CF2F0F43FAAA00DE24FB /* Icon.icns */; };
 		5EA7D0620F450EF500DE24FB /* FadeFrame.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EA7D0600F450EF500DE24FB /* FadeFrame.png */; };
 		5EA7D0630F450EF500DE24FB /* iPhoneFrame.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EA7D0610F450EF500DE24FB /* iPhoneFrame.png */; };
-		659FA5BE0FF70EAA000A86E1 /* FakeCompass in Resources */ = {isa = PBXBuildFile; fileRef = 659FA5B60FF70EAA000A86E1 /* FakeCompass */; };
 		659FA5BF0FF70EAA000A86E1 /* FakeCompass.sb in Resources */ = {isa = PBXBuildFile; fileRef = 659FA5B90FF70EAA000A86E1 /* FakeCompass.sb */; };
-		659FA5C00FF70EAA000A86E1 /* FakeVoiceMemos in Resources */ = {isa = PBXBuildFile; fileRef = 659FA5BA0FF70EAA000A86E1 /* FakeVoiceMemos */; };
 		659FA5C10FF70EAA000A86E1 /* FakeVoiceMemos.sb in Resources */ = {isa = PBXBuildFile; fileRef = 659FA5BD0FF70EAA000A86E1 /* FakeVoiceMemos.sb */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -73,36 +53,18 @@
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		2B4EC09A10301F3800042E09 /* FadeFrameLandscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FadeFrameLandscape.png; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* FakeFinger_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeFinger_Prefix.pch; sourceTree = "<group>"; };
-		5E4D86270F45EC4700E02F03 /* FakeAppStore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = FakeAppStore; path = SimAppCollection/FakeApps/FakeAppStore; sourceTree = "<group>"; };
 		5E4D862A0F45EC4700E02F03 /* FakeAppStore.sb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FakeAppStore.sb; path = SimAppCollection/FakeApps/FakeAppStore.sb; sourceTree = "<group>"; };
-		5E4D862B0F45EC4700E02F03 /* FakeCalculator */ = {isa = PBXFileReference; lastKnownFileType = folder; name = FakeCalculator; path = SimAppCollection/FakeApps/FakeCalculator; sourceTree = "<group>"; };
 		5E4D862E0F45EC4700E02F03 /* FakeCalculator.sb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FakeCalculator.sb; path = SimAppCollection/FakeApps/FakeCalculator.sb; sourceTree = "<group>"; };
-		5E4D862F0F45EC4700E02F03 /* FakeCalendar */ = {isa = PBXFileReference; lastKnownFileType = folder; name = FakeCalendar; path = SimAppCollection/FakeApps/FakeCalendar; sourceTree = "<group>"; };
-		5E4D86320F45EC4700E02F03 /* FakeCalendar.sb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FakeCalendar.sb; path = SimAppCollection/FakeApps/FakeCalendar.sb; sourceTree = "<group>"; };
-		5E4D86330F45EC4700E02F03 /* FakeCamera */ = {isa = PBXFileReference; lastKnownFileType = folder; name = FakeCamera; path = SimAppCollection/FakeApps/FakeCamera; sourceTree = "<group>"; };
 		5E4D86360F45EC4700E02F03 /* FakeCamera.sb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FakeCamera.sb; path = SimAppCollection/FakeApps/FakeCamera.sb; sourceTree = "<group>"; };
-		5E4D86370F45EC4700E02F03 /* FakeClock */ = {isa = PBXFileReference; lastKnownFileType = folder; name = FakeClock; path = SimAppCollection/FakeApps/FakeClock; sourceTree = "<group>"; };
 		5E4D863A0F45EC4700E02F03 /* FakeClock.sb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FakeClock.sb; path = SimAppCollection/FakeApps/FakeClock.sb; sourceTree = "<group>"; };
-		5E4D863B0F45EC4700E02F03 /* FakeiPod */ = {isa = PBXFileReference; lastKnownFileType = folder; name = FakeiPod; path = SimAppCollection/FakeApps/FakeiPod; sourceTree = "<group>"; };
 		5E4D863E0F45EC4700E02F03 /* FakeiPod.sb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FakeiPod.sb; path = SimAppCollection/FakeApps/FakeiPod.sb; sourceTree = "<group>"; };
-		5E4D863F0F45EC4700E02F03 /* FakeiTunes */ = {isa = PBXFileReference; lastKnownFileType = folder; name = FakeiTunes; path = SimAppCollection/FakeApps/FakeiTunes; sourceTree = "<group>"; };
 		5E4D86420F45EC4700E02F03 /* FakeiTunes.sb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FakeiTunes.sb; path = SimAppCollection/FakeApps/FakeiTunes.sb; sourceTree = "<group>"; };
-		5E4D86430F45EC4700E02F03 /* FakeMail */ = {isa = PBXFileReference; lastKnownFileType = folder; name = FakeMail; path = SimAppCollection/FakeApps/FakeMail; sourceTree = "<group>"; };
 		5E4D86460F45EC4700E02F03 /* FakeMail.sb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FakeMail.sb; path = SimAppCollection/FakeApps/FakeMail.sb; sourceTree = "<group>"; };
-		5E4D86470F45EC4700E02F03 /* FakeMaps */ = {isa = PBXFileReference; lastKnownFileType = folder; name = FakeMaps; path = SimAppCollection/FakeApps/FakeMaps; sourceTree = "<group>"; };
-		5E4D864A0F45EC4700E02F03 /* FakeMaps.sb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FakeMaps.sb; path = SimAppCollection/FakeApps/FakeMaps.sb; sourceTree = "<group>"; };
-		5E4D864B0F45EC4700E02F03 /* FakeNotes */ = {isa = PBXFileReference; lastKnownFileType = folder; name = FakeNotes; path = SimAppCollection/FakeApps/FakeNotes; sourceTree = "<group>"; };
 		5E4D864E0F45EC4700E02F03 /* FakeNotes.sb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FakeNotes.sb; path = SimAppCollection/FakeApps/FakeNotes.sb; sourceTree = "<group>"; };
-		5E4D864F0F45EC4700E02F03 /* FakePhone */ = {isa = PBXFileReference; lastKnownFileType = folder; name = FakePhone; path = SimAppCollection/FakeApps/FakePhone; sourceTree = "<group>"; };
 		5E4D86520F45EC4700E02F03 /* FakePhone.sb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FakePhone.sb; path = SimAppCollection/FakeApps/FakePhone.sb; sourceTree = "<group>"; };
-		5E4D86530F45EC4700E02F03 /* FakeStocks */ = {isa = PBXFileReference; lastKnownFileType = folder; name = FakeStocks; path = SimAppCollection/FakeApps/FakeStocks; sourceTree = "<group>"; };
 		5E4D86560F45EC4700E02F03 /* FakeStocks.sb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FakeStocks.sb; path = SimAppCollection/FakeApps/FakeStocks.sb; sourceTree = "<group>"; };
-		5E4D86570F45EC4700E02F03 /* FakeText */ = {isa = PBXFileReference; lastKnownFileType = folder; name = FakeText; path = SimAppCollection/FakeApps/FakeText; sourceTree = "<group>"; };
 		5E4D865A0F45EC4700E02F03 /* FakeText.sb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FakeText.sb; path = SimAppCollection/FakeApps/FakeText.sb; sourceTree = "<group>"; };
-		5E4D865B0F45EC4700E02F03 /* FakeWeather */ = {isa = PBXFileReference; lastKnownFileType = folder; name = FakeWeather; path = SimAppCollection/FakeApps/FakeWeather; sourceTree = "<group>"; };
 		5E4D865E0F45EC4700E02F03 /* FakeWeather.sb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FakeWeather.sb; path = SimAppCollection/FakeApps/FakeWeather.sb; sourceTree = "<group>"; };
-		5E4D865F0F45EC4700E02F03 /* FakeYouTube */ = {isa = PBXFileReference; lastKnownFileType = folder; name = FakeYouTube; path = SimAppCollection/FakeApps/FakeYouTube; sourceTree = "<group>"; };
-		5E4D86620F45EC4700E02F03 /* FakeYouTube.sb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FakeYouTube.sb; path = SimAppCollection/FakeApps/FakeYouTube.sb; sourceTree = "<group>"; };
 		5E8B471910504F9F00DF6DFB /* iPhoneFrameLandscape_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhoneFrameLandscape_right.png; sourceTree = "<group>"; };
 		5EA7CD970F43CCE000DE24FB /* FakeFingerAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeFingerAppDelegate.h; sourceTree = "<group>"; };
 		5EA7CD980F43CCE000DE24FB /* FakeFingerAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeFingerAppDelegate.m; sourceTree = "<group>"; };
@@ -112,9 +74,7 @@
 		5EA7CF2F0F43FAAA00DE24FB /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
 		5EA7D0600F450EF500DE24FB /* FadeFrame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FadeFrame.png; sourceTree = "<group>"; };
 		5EA7D0610F450EF500DE24FB /* iPhoneFrame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhoneFrame.png; sourceTree = "<group>"; };
-		659FA5B60FF70EAA000A86E1 /* FakeCompass */ = {isa = PBXFileReference; lastKnownFileType = folder; name = FakeCompass; path = SimAppCollection/FakeApps/FakeCompass; sourceTree = "<group>"; };
 		659FA5B90FF70EAA000A86E1 /* FakeCompass.sb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FakeCompass.sb; path = SimAppCollection/FakeApps/FakeCompass.sb; sourceTree = "<group>"; };
-		659FA5BA0FF70EAA000A86E1 /* FakeVoiceMemos */ = {isa = PBXFileReference; lastKnownFileType = folder; name = FakeVoiceMemos; path = SimAppCollection/FakeApps/FakeVoiceMemos; sourceTree = "<group>"; };
 		659FA5BD0FF70EAA000A86E1 /* FakeVoiceMemos.sb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FakeVoiceMemos.sb; path = SimAppCollection/FakeApps/FakeVoiceMemos.sb; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* SimFinger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimFinger.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -232,40 +192,20 @@
 		5E4D86810F45EC4A00E02F03 /* FakeApps */ = {
 			isa = PBXGroup;
 			children = (
-				659FA5B60FF70EAA000A86E1 /* FakeCompass */,
 				659FA5B90FF70EAA000A86E1 /* FakeCompass.sb */,
-				659FA5BA0FF70EAA000A86E1 /* FakeVoiceMemos */,
 				659FA5BD0FF70EAA000A86E1 /* FakeVoiceMemos.sb */,
-				5E4D86270F45EC4700E02F03 /* FakeAppStore */,
 				5E4D862A0F45EC4700E02F03 /* FakeAppStore.sb */,
-				5E4D862B0F45EC4700E02F03 /* FakeCalculator */,
 				5E4D862E0F45EC4700E02F03 /* FakeCalculator.sb */,
-				5E4D862F0F45EC4700E02F03 /* FakeCalendar */,
-				5E4D86320F45EC4700E02F03 /* FakeCalendar.sb */,
-				5E4D86330F45EC4700E02F03 /* FakeCamera */,
 				5E4D86360F45EC4700E02F03 /* FakeCamera.sb */,
-				5E4D86370F45EC4700E02F03 /* FakeClock */,
 				5E4D863A0F45EC4700E02F03 /* FakeClock.sb */,
-				5E4D863B0F45EC4700E02F03 /* FakeiPod */,
 				5E4D863E0F45EC4700E02F03 /* FakeiPod.sb */,
-				5E4D863F0F45EC4700E02F03 /* FakeiTunes */,
 				5E4D86420F45EC4700E02F03 /* FakeiTunes.sb */,
-				5E4D86430F45EC4700E02F03 /* FakeMail */,
 				5E4D86460F45EC4700E02F03 /* FakeMail.sb */,
-				5E4D86470F45EC4700E02F03 /* FakeMaps */,
-				5E4D864A0F45EC4700E02F03 /* FakeMaps.sb */,
-				5E4D864B0F45EC4700E02F03 /* FakeNotes */,
 				5E4D864E0F45EC4700E02F03 /* FakeNotes.sb */,
-				5E4D864F0F45EC4700E02F03 /* FakePhone */,
 				5E4D86520F45EC4700E02F03 /* FakePhone.sb */,
-				5E4D86530F45EC4700E02F03 /* FakeStocks */,
 				5E4D86560F45EC4700E02F03 /* FakeStocks.sb */,
-				5E4D86570F45EC4700E02F03 /* FakeText */,
 				5E4D865A0F45EC4700E02F03 /* FakeText.sb */,
-				5E4D865B0F45EC4700E02F03 /* FakeWeather */,
 				5E4D865E0F45EC4700E02F03 /* FakeWeather.sb */,
-				5E4D865F0F45EC4700E02F03 /* FakeYouTube */,
-				5E4D86620F45EC4700E02F03 /* FakeYouTube.sb */,
 			);
 			name = FakeApps;
 			sourceTree = "<group>";
@@ -330,39 +270,19 @@
 				5EA7CF300F43FAAA00DE24FB /* Icon.icns in Resources */,
 				5EA7D0620F450EF500DE24FB /* FadeFrame.png in Resources */,
 				5EA7D0630F450EF500DE24FB /* iPhoneFrame.png in Resources */,
-				5E4D86630F45EC4700E02F03 /* FakeAppStore in Resources */,
 				5E4D86640F45EC4700E02F03 /* FakeAppStore.sb in Resources */,
-				5E4D86650F45EC4700E02F03 /* FakeCalculator in Resources */,
 				5E4D86660F45EC4700E02F03 /* FakeCalculator.sb in Resources */,
-				5E4D86670F45EC4700E02F03 /* FakeCalendar in Resources */,
-				5E4D86680F45EC4700E02F03 /* FakeCalendar.sb in Resources */,
-				5E4D86690F45EC4700E02F03 /* FakeCamera in Resources */,
 				5E4D866A0F45EC4700E02F03 /* FakeCamera.sb in Resources */,
-				5E4D866B0F45EC4700E02F03 /* FakeClock in Resources */,
 				5E4D866C0F45EC4700E02F03 /* FakeClock.sb in Resources */,
-				5E4D866D0F45EC4700E02F03 /* FakeiPod in Resources */,
 				5E4D866E0F45EC4700E02F03 /* FakeiPod.sb in Resources */,
-				5E4D866F0F45EC4700E02F03 /* FakeiTunes in Resources */,
 				5E4D86700F45EC4700E02F03 /* FakeiTunes.sb in Resources */,
-				5E4D86710F45EC4700E02F03 /* FakeMail in Resources */,
 				5E4D86720F45EC4700E02F03 /* FakeMail.sb in Resources */,
-				5E4D86730F45EC4700E02F03 /* FakeMaps in Resources */,
-				5E4D86740F45EC4700E02F03 /* FakeMaps.sb in Resources */,
-				5E4D86750F45EC4700E02F03 /* FakeNotes in Resources */,
 				5E4D86760F45EC4700E02F03 /* FakeNotes.sb in Resources */,
-				5E4D86770F45EC4700E02F03 /* FakePhone in Resources */,
 				5E4D86780F45EC4700E02F03 /* FakePhone.sb in Resources */,
-				5E4D86790F45EC4700E02F03 /* FakeStocks in Resources */,
 				5E4D867A0F45EC4700E02F03 /* FakeStocks.sb in Resources */,
-				5E4D867B0F45EC4700E02F03 /* FakeText in Resources */,
 				5E4D867C0F45EC4700E02F03 /* FakeText.sb in Resources */,
-				5E4D867D0F45EC4700E02F03 /* FakeWeather in Resources */,
 				5E4D867E0F45EC4700E02F03 /* FakeWeather.sb in Resources */,
-				5E4D867F0F45EC4700E02F03 /* FakeYouTube in Resources */,
-				5E4D86800F45EC4700E02F03 /* FakeYouTube.sb in Resources */,
-				659FA5BE0FF70EAA000A86E1 /* FakeCompass in Resources */,
 				659FA5BF0FF70EAA000A86E1 /* FakeCompass.sb in Resources */,
-				659FA5C00FF70EAA000A86E1 /* FakeVoiceMemos in Resources */,
 				659FA5C10FF70EAA000A86E1 /* FakeVoiceMemos.sb in Resources */,
 				2B4EC09B10301F3800042E09 /* FadeFrameLandscape.png in Resources */,
 				5E8B471B10504F9F00DF6DFB /* iPhoneFrameLandscape_right.png in Resources */,
