@@ -10,6 +10,8 @@
 		0CAB1BBF140A77F600567611 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CAB1BBE140A77F600567611 /* ApplicationServices.framework */; };
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		2B4EC09B10301F3800042E09 /* FadeFrameLandscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B4EC09A10301F3800042E09 /* FadeFrameLandscape.png */; };
+		4E8D90AF18EF4EB20067F26A /* iPhone5sFrame.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E8D90AE18EF4EB20067F26A /* iPhone5sFrame.png */; };
+		4E8D90B118EF55F60067F26A /* iPhone5sFrameLandscape_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E8D90B018EF55F60067F26A /* iPhone5sFrameLandscape_right.png */; };
 		5E4D86640F45EC4700E02F03 /* FakeAppStore.sb in Resources */ = {isa = PBXBuildFile; fileRef = 5E4D862A0F45EC4700E02F03 /* FakeAppStore.sb */; };
 		5E4D86660F45EC4700E02F03 /* FakeCalculator.sb in Resources */ = {isa = PBXBuildFile; fileRef = 5E4D862E0F45EC4700E02F03 /* FakeCalculator.sb */; };
 		5E4D866A0F45EC4700E02F03 /* FakeCamera.sb in Resources */ = {isa = PBXBuildFile; fileRef = 5E4D86360F45EC4700E02F03 /* FakeCamera.sb */; };
@@ -53,6 +55,8 @@
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		2B4EC09A10301F3800042E09 /* FadeFrameLandscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FadeFrameLandscape.png; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* FakeFinger_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeFinger_Prefix.pch; sourceTree = "<group>"; };
+		4E8D90AE18EF4EB20067F26A /* iPhone5sFrame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhone5sFrame.png; sourceTree = "<group>"; };
+		4E8D90B018EF55F60067F26A /* iPhone5sFrameLandscape_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhone5sFrameLandscape_right.png; sourceTree = "<group>"; };
 		5E4D862A0F45EC4700E02F03 /* FakeAppStore.sb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FakeAppStore.sb; path = SimAppCollection/FakeApps/FakeAppStore.sb; sourceTree = "<group>"; };
 		5E4D862E0F45EC4700E02F03 /* FakeCalculator.sb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FakeCalculator.sb; path = SimAppCollection/FakeApps/FakeCalculator.sb; sourceTree = "<group>"; };
 		5E4D86360F45EC4700E02F03 /* FakeCamera.sb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FakeCamera.sb; path = SimAppCollection/FakeApps/FakeCamera.sb; sourceTree = "<group>"; };
@@ -167,6 +171,8 @@
 				2B4EC09A10301F3800042E09 /* FadeFrameLandscape.png */,
 				5EA7D0610F450EF500DE24FB /* iPhoneFrame.png */,
 				5E8B471910504F9F00DF6DFB /* iPhoneFrameLandscape_right.png */,
+				4E8D90AE18EF4EB20067F26A /* iPhone5sFrame.png */,
+				4E8D90B018EF55F60067F26A /* iPhone5sFrameLandscape_right.png */,
 				ABF1C2581653F8E5000BE6CA /* iPhone5Frame.png */,
 				C9FB62FE1249139D001AD88A /* iPadFadeLandscape.png */,
 				C9FB62FF1249139D001AD88A /* iPadFrameLandscape_right.png */,
@@ -279,6 +285,7 @@
 				5E4D86720F45EC4700E02F03 /* FakeMail.sb in Resources */,
 				5E4D86760F45EC4700E02F03 /* FakeNotes.sb in Resources */,
 				5E4D86780F45EC4700E02F03 /* FakePhone.sb in Resources */,
+				4E8D90AF18EF4EB20067F26A /* iPhone5sFrame.png in Resources */,
 				5E4D867A0F45EC4700E02F03 /* FakeStocks.sb in Resources */,
 				5E4D867C0F45EC4700E02F03 /* FakeText.sb in Resources */,
 				5E4D867E0F45EC4700E02F03 /* FakeWeather.sb in Resources */,
@@ -290,6 +297,7 @@
 				C9FB62C412480F03001AD88A /* iPadFrame.png in Resources */,
 				C9FB63001249139D001AD88A /* iPadFadeLandscape.png in Resources */,
 				C9FB63011249139D001AD88A /* iPadFrameLandscape_right.png in Resources */,
+				4E8D90B118EF55F60067F26A /* iPhone5sFrameLandscape_right.png in Resources */,
 				ABF1C2591653F8E5000BE6CA /* iPhone5Frame.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
