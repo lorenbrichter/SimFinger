@@ -9,24 +9,24 @@ SimFinger itself is composed of two parts. One is a fake “frame” that sits o
 A good screencapture tool is your friend. [SnapzProX](http://www.ambrosiasw.com/utilities/snapzprox/) and [ScreenFlow](http://www.telestream.net/screenflow/) are good choices. 
 
 ##Some Caveats
-* Currently set to work with iOS 7.1 simulator in xCode 5.1
+* Currently set to work with iOS 7.1 simulator in Xcode 5.1
 * Current imagery available for the following:
-** iPhone 5S Vertical and Landscape
-** iPhone 4S Vertical and Landscape (when sim is set to 3.5 inches)
-** iPad Air Vertical and Landscape
+  * iPhone 5S Vertical and Landscape
+  * iPhone 4S Vertical and Landscape (when sim is set to 3.5 inches)
+  * iPad Air Vertical and Landscape
 
 ##Instructions
 1. [Launch the iOS Simulator](http://stackoverflow.com/a/5048572/776167)
 2. Hide your dock with shortcut -Option-D (SimFinger locks itself to the lower left of your screen)
 3. Make sure the simulator's scale (Window > Scale) fits SimFinger. For retina devices, scale @ 50%. For non-retina, just use 100%.
-4. Set your simulator device type to whatever you want to take a screencast of. For example, if you want the landscape iPad, set your simulator device to the iPad and rotate. SimFinger will choose its overlay image based on the dimensions of your simulator.
+4. Set your simulator device-type to whatever you want to take a screencast of. For example, if you want the landscape iPad, set your simulator device to the iPad and rotate. SimFinger will choose its overlay image based on the dimensions of your simulator.
 5. Launch SimFinger
-  - If you want to build from code, launch the [SimFinger.xcodeproj](Fake/SimFinger/FakeFinger.xcodeproj)
-  - If you want a compiled version, download [SimFingerApp.zip](SimFingerApp.zip)
+  * If you want to build from code, launch the [SimFinger.xcodeproj](Fake/SimFinger/FakeFinger.xcodeproj)
+  * If you want a compiled version, download [SimFingerApp.zip](SimFingerApp.zip)
 
 ###Protips
-*If you want to change the overlay image without restarting SimFinger, just go to Control > Reposition iPhone Simulator Window and it will auto adjust the overlay image.
-*[Enable Universal Access](http://mizage.com/help/accessibility.html)
+* If you want to change the overlay image without restarting SimFinger, just go to Control > Reposition iPhone Simulator Window after you have changed the device-type in the simulator.
+* [Enable Universal Access](http://mizage.com/help/accessibility.html)
 
 ###If you run into issues with installing the homescreen apps, do the following:
 1. Run buildFakeApps.sh from terminal (Should be lots of happy success messages)
