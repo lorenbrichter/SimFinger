@@ -447,6 +447,16 @@ enum {
 	pointerOverlayIsHidden = !pointerOverlayIsHidden;
 }
 
+- (IBAction)showCursorPressed:(NSMenuItem *)sender {
+    if(cursorIsShown) {
+        [sender setState: NSOffState];
+        hideTheCursor();
+    } else {
+        [sender setState: NSOnState];
+        showTheCursor();
+    }
+    cursorIsShown = !cursorIsShown;
+}
 
 CGEventRef tapCallBack(CGEventTapProxy proxy, CGEventType type, CGEventRef event, void *info)
 {
@@ -466,7 +476,9 @@ CGEventRef tapCallBack(CGEventTapProxy proxy, CGEventType type, CGEventRef event
 			[delegate mouseMoved];
 			break;
 	}
-	hideTheCursor();
+    
+    if(!delegate->cursorIsShown)
+        hideTheCursor();
 	return event;
 }
 
@@ -542,6 +554,11 @@ void hideTheCursor()
     CFRelease(propertyString);
     // Hide the cursor and wait
     CGDisplayHideCursor(kCGDirectMainDisplay);
+}
+
+void showTheCursor()
+{
+    CGDisplayShowCursor(kCGDirectMainDisplay);
 }
 
 @end
