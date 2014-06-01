@@ -19,6 +19,7 @@
 	
 	BOOL pointerOverlayIsHidden;
 	BOOL hardwareOverlayIsHidden;
+    BOOL cursorIsShown;
 	
 	int setTextMode;
 	NSMutableDictionary *springboardPrefs;
@@ -44,5 +45,6 @@
 - (IBAction)installFakeApps:(id)sender;
 
 void hideTheCursor();
+void showTheCursor();
 
 @end
