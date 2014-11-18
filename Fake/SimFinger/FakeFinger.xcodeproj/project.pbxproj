@@ -12,6 +12,8 @@
 		2B4EC09B10301F3800042E09 /* FadeFrameLandscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B4EC09A10301F3800042E09 /* FadeFrameLandscape.png */; };
 		4E8D90AF18EF4EB20067F26A /* iPhone5sFrame.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E8D90AE18EF4EB20067F26A /* iPhone5sFrame.png */; };
 		4E8D90B118EF55F60067F26A /* iPhone5sFrameLandscape_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E8D90B018EF55F60067F26A /* iPhone5sFrameLandscape_right.png */; };
+		4ECF049F19C7AB510088D001 /* iPhone6Frame.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ECF049E19C7AB510088D001 /* iPhone6Frame.png */; };
+		4ECF04A119CB95B20088D001 /* iPhone6FrameLandscape_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ECF04A019CB95B20088D001 /* iPhone6FrameLandscape_right.png */; };
 		5E4D86640F45EC4700E02F03 /* FakeAppStore.sb in Resources */ = {isa = PBXBuildFile; fileRef = 5E4D862A0F45EC4700E02F03 /* FakeAppStore.sb */; };
 		5E4D86660F45EC4700E02F03 /* FakeCalculator.sb in Resources */ = {isa = PBXBuildFile; fileRef = 5E4D862E0F45EC4700E02F03 /* FakeCalculator.sb */; };
 		5E4D866A0F45EC4700E02F03 /* FakeCamera.sb in Resources */ = {isa = PBXBuildFile; fileRef = 5E4D86360F45EC4700E02F03 /* FakeCamera.sb */; };
@@ -57,6 +59,8 @@
 		32CA4F630368D1EE00C91783 /* FakeFinger_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeFinger_Prefix.pch; sourceTree = "<group>"; };
 		4E8D90AE18EF4EB20067F26A /* iPhone5sFrame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhone5sFrame.png; sourceTree = "<group>"; };
 		4E8D90B018EF55F60067F26A /* iPhone5sFrameLandscape_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhone5sFrameLandscape_right.png; sourceTree = "<group>"; };
+		4ECF049E19C7AB510088D001 /* iPhone6Frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhone6Frame.png; sourceTree = "<group>"; };
+		4ECF04A019CB95B20088D001 /* iPhone6FrameLandscape_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhone6FrameLandscape_right.png; sourceTree = "<group>"; };
 		5E4D862A0F45EC4700E02F03 /* FakeAppStore.sb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FakeAppStore.sb; path = SimAppCollection/FakeApps/FakeAppStore.sb; sourceTree = "<group>"; };
 		5E4D862E0F45EC4700E02F03 /* FakeCalculator.sb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FakeCalculator.sb; path = SimAppCollection/FakeApps/FakeCalculator.sb; sourceTree = "<group>"; };
 		5E4D86360F45EC4700E02F03 /* FakeCamera.sb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FakeCamera.sb; path = SimAppCollection/FakeApps/FakeCamera.sb; sourceTree = "<group>"; };
@@ -172,10 +176,12 @@
 				5EA7D0610F450EF500DE24FB /* iPhoneFrame.png */,
 				5E8B471910504F9F00DF6DFB /* iPhoneFrameLandscape_right.png */,
 				4E8D90AE18EF4EB20067F26A /* iPhone5sFrame.png */,
+				4ECF049E19C7AB510088D001 /* iPhone6Frame.png */,
 				4E8D90B018EF55F60067F26A /* iPhone5sFrameLandscape_right.png */,
 				ABF1C2581653F8E5000BE6CA /* iPhone5Frame.png */,
 				C9FB62FE1249139D001AD88A /* iPadFadeLandscape.png */,
 				C9FB62FF1249139D001AD88A /* iPadFrameLandscape_right.png */,
+				4ECF04A019CB95B20088D001 /* iPhone6FrameLandscape_right.png */,
 				C9FB62C112480F03001AD88A /* iPadFade.png */,
 				C9FB62C212480F03001AD88A /* iPadFrame.png */,
 				5EA7CF2F0F43FAAA00DE24FB /* Icon.icns */,
@@ -269,6 +275,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4ECF049F19C7AB510088D001 /* iPhone6Frame.png in Resources */,
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
 				5EA7CEF00F43EECC00DE24FB /* Hover.png in Resources */,
@@ -298,6 +305,7 @@
 				C9FB63001249139D001AD88A /* iPadFadeLandscape.png in Resources */,
 				C9FB63011249139D001AD88A /* iPadFrameLandscape_right.png in Resources */,
 				4E8D90B118EF55F60067F26A /* iPhone5sFrameLandscape_right.png in Resources */,
+				4ECF04A119CB95B20088D001 /* iPhone6FrameLandscape_right.png in Resources */,
 				ABF1C2591653F8E5000BE6CA /* iPhone5Frame.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -349,6 +357,7 @@
 				GCC_PREFIX_HEADER = FakeFinger_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = SimFinger;
 			};
 			name = Debug;
@@ -364,6 +373,7 @@
 				GCC_PREFIX_HEADER = FakeFinger_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = SimFinger;
 			};
 			name = Release;

@@ -141,48 +141,53 @@ void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef elemen
 			BOOL supportedSize = NO;
 			BOOL iPadMode = NO;
             BOOL iPhone5Mode = NO;
+            BOOL iPhone6Mode = NO;
 			BOOL landscape = NO;
             BOOL landscape5 = NO;
+            BOOL landscape6 = NO;
 			int iPhoneWidth = 320;
 			int iPhoneHeight = 502;
 			int iPadWidth = 790;
 			int iPadHeight = 1024;
             int iPhone5Width = 320;
             int iPhone5Height = 590;
+            int iPhone6Width = 375;
+            int iPhone6Height = 689;
 			
 			if((int)size.width == iPhoneWidth && (int)size.height == iPhoneHeight) {
 				[hardwareOverlay setContentSize:NSMakeSize(634, 985)];
 				[hardwareOverlay setBackgroundColor:[NSColor colorWithPatternImage:[NSImage imageNamed:@"iPhoneFrame"]]];
 				
-				[fadeOverlay setContentSize:NSMakeSize(634,985)];
-				[fadeOverlay setBackgroundColor:[NSColor colorWithPatternImage:[NSImage imageNamed:@"FadeFrame"]]];
-				
 				supportedSize = YES;
 			} else if((int)size.width == iPhoneHeight - 22 && (int)size.height == iPhoneWidth + 22) {
 				[hardwareOverlay setContentSize:NSMakeSize(985,634)];
 				[hardwareOverlay setBackgroundColor:[NSColor colorWithPatternImage:[NSImage imageNamed:@"iPhoneFrameLandscape_right"]]];
-				
-				[fadeOverlay setContentSize:NSMakeSize(985,634)];
-				[fadeOverlay setBackgroundColor:[NSColor colorWithPatternImage:[NSImage imageNamed:@"FadeFrameLandscape"]]];
-				
+
 				supportedSize = YES;
 				landscape = YES;
 			} else if((int)size.width == iPhone5Height - 22 && (int)size.height == iPhone5Width + 22) {
 				[hardwareOverlay setContentSize:NSMakeSize(985,634)];
 				[hardwareOverlay setBackgroundColor:[NSColor colorWithPatternImage:[NSImage imageNamed:@"iPhone5sFrameLandscape_right"]]];
 				
-				[fadeOverlay setContentSize:NSMakeSize(985,634)];
-				[fadeOverlay setBackgroundColor:[NSColor colorWithPatternImage:[NSImage imageNamed:@"FadeFrameLandscape"]]];
-				
 				supportedSize = YES;
                 iPhone5Mode = YES;
 				landscape5 = YES;
-			} else if ((int)size.width == iPadWidth - 22 && (int)size.height == iPadHeight + 22) {
+            } else if((int)size.width == iPhone6Width && (int)size.height == iPhone6Height) {
+                [hardwareOverlay setContentSize:NSMakeSize(634, 985)];
+                [hardwareOverlay setBackgroundColor:[NSColor colorWithPatternImage:[NSImage imageNamed:@"iPhone6Frame"]]];
+                
+                supportedSize = YES;
+                iPhone6Mode = YES;
+            } else if((int)size.width == iPhone6Height - 22 && (int)size.height == iPhone6Width + 22) {
+                [hardwareOverlay setContentSize:NSMakeSize(985, 634)];
+                [hardwareOverlay setBackgroundColor:[NSColor colorWithPatternImage:[NSImage imageNamed:@"iPhone6FrameLandscape_right"]]];
+                
+                supportedSize = YES;
+                iPhone6Mode = YES;
+                landscape6 = YES;
+            } else if ((int)size.width == iPadWidth - 22 && (int)size.height == iPadHeight + 22) {
 				[hardwareOverlay setContentSize:NSMakeSize(1128, 1410)];
 				[hardwareOverlay setBackgroundColor:[NSColor colorWithPatternImage:[NSImage imageNamed:@"iPadFrame"]]];
-				
-				[fadeOverlay setContentSize:NSMakeSize(1128, 1410)];
-				[fadeOverlay setBackgroundColor:[NSColor colorWithPatternImage:[NSImage imageNamed:@"iPadFade"]]];
                 
 				supportedSize = YES;
 				iPadMode = YES;
@@ -190,18 +195,12 @@ void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef elemen
 				[hardwareOverlay setContentSize:NSMakeSize(1410, 1128)];
 				[hardwareOverlay setBackgroundColor:[NSColor colorWithPatternImage:[NSImage imageNamed:@"iPadFrameLandscape_right"]]];
 				
-				[fadeOverlay setContentSize:NSMakeSize(1128, 1410)];
-				[fadeOverlay setBackgroundColor:[NSColor colorWithPatternImage:[NSImage imageNamed:@"iPadFadeLandscape"]]];
-				
 				supportedSize = YES;
 				iPadMode = YES;
 				landscape = YES;
 			} else if ((int)size.width == iPhone5Width && (int)size.height == iPhone5Height) {
                 [hardwareOverlay setContentSize:NSMakeSize(634, 985)];
 				[hardwareOverlay setBackgroundColor:[NSColor colorWithPatternImage:[NSImage imageNamed:@"iPhone5sFrame"]]];
-				
-				[fadeOverlay setContentSize:NSMakeSize(634,985)];
-				[fadeOverlay setBackgroundColor:[NSColor colorWithPatternImage:[NSImage imageNamed:@"FadeFrame"]]];
                 
                 supportedSize = YES;
 				iPhone5Mode = YES;
@@ -216,23 +215,37 @@ void WindowFrameDidChangeCallback( AXObserverRef observer, AXUIElementRef elemen
                     if(iPhone5Mode && !landscape5) {
                         point.x = 159;
                         point.y = screenRect.size.height - size.height - 209;
+                        NSLog(@"iPhone 5s");
                     } else if(landscape5 && !landscape) {
 						point.x = 209;
 						point.y = screenRect.size.height - size.height - 155;
-					} else if(!landscape) {
+                        NSLog(@"iPhone 5s Landscape");
+                    } else if(iPhone6Mode && !landscape && !landscape6) {
+                        point.x = 130;
+                        point.y = screenRect.size.height - size.height - 159;
+                        NSLog(@"iPhone 6");
+                    } else if(iPhone6Mode && landscape6) {
+                        point.x = 159;
+                        point.y = screenRect.size.height - size.height - 129;
+                        NSLog(@"iPhone 6 Landscape");
+                    } else if(!landscape) {
 						point.x = 154;
 						point.y = screenRect.size.height - size.height - 267;
-					} else {
+                        NSLog(@"iPhone 4");
+                    } else {
 						point.x = 252;
 						point.y = screenRect.size.height - size.height - 168;
+                        NSLog(@"iPhone 4 Landscape");
 					}
 				} else {
 					if (!landscape) {
 						point.x = 180;
                         point.y = screenRect.size.height - size.height - 199;
+                        NSLog(@"iPad Air Vertical");
 					} else {
 						point.x = 199;
                         point.y = screenRect.size.height - size.height - 180;
+                        NSLog(@"iPad Air Landscape");
 					}
 				}
 				AXValueRef pointValue = AXValueCreate(kAXValueCGPointType, &point);
@@ -425,11 +438,9 @@ enum {
 {
 	if(hardwareOverlayIsHidden) {
 		[hardwareOverlay orderFront:nil];
-		[fadeOverlay orderFront:nil];
 		[sender setState:NSOffState];
 	} else {
 		[hardwareOverlay orderOut:nil];
-		[fadeOverlay orderOut:nil];
 		[sender setState:NSOnState];
 	}
 	hardwareOverlayIsHidden = !hardwareOverlayIsHidden;
@@ -503,13 +514,6 @@ CGEventRef tapCallBack(CGEventTapProxy proxy, CGEventType type, CGEventRef event
 	[self _updateWindowPosition];
 	[pointerOverlay orderFront:nil];
 	
-	fadeOverlay = [[NSWindow alloc] initWithContentRect:NSMakeRect(0, 0, 634, 985) styleMask:NSBorderlessWindowMask backing:NSBackingStoreBuffered defer:NO];
-	[fadeOverlay setAlphaValue:1.0];
-	[fadeOverlay setOpaque:NO];
-	[fadeOverlay setBackgroundColor:[NSColor colorWithPatternImage:[NSImage imageNamed:@"FadeFrame"]]];
-	[fadeOverlay setIgnoresMouseEvents:YES];
-	[fadeOverlay setLevel:NSFloatingWindowLevel + 1];
-	[fadeOverlay orderFront:nil];
 	
 	CGEventMask mask =	CGEventMaskBit(kCGEventLeftMouseDown) |
     CGEventMaskBit(kCGEventLeftMouseUp) |
