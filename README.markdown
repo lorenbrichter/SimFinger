@@ -9,11 +9,12 @@ SimFinger itself is composed of two parts. One is a fake “frame” that sits o
 A good screencapture tool is your friend. [SnapzProX](http://www.ambrosiasw.com/utilities/snapzprox/) and [ScreenFlow](http://www.telestream.net/screenflow/) are good choices. 
 
 ##Some Caveats
-* Currently set to work with iOS 7.1 simulator in Xcode 5.1
+* Currently set to work with iOS 8.1 simulator in Xcode 6.1
 * Current imagery available for the following:
+  * iPhone 6 Vertical and Landscape (6 Plus not supported)
   * iPhone 5S Vertical and Landscape
   * iPhone 4S Vertical and Landscape (when sim is set to 3.5 inches)
-  * iPad Air Vertical and Landscape
+  * iPad Air 2 Vertical and Landscape
 
 ##Instructions
 1. [Launch the iOS Simulator](http://stackoverflow.com/a/5048572/776167)
@@ -32,7 +33,7 @@ A good screencapture tool is your friend. [SnapzProX](http://www.ambrosiasw.com/
 1. Run buildFakeApps.sh from terminal (Should be lots of happy success messages)
 2. From the simfinger source folder, go to Fake > SimFinger > SimAppCollection > FakeApps
 3. Copy Everything out of the FakeApps folder
-4. Paste everything into ~/Library/Application Support/iPhone Simulator/7.1/Applications/
+4. Paste everything into ~/Library/Developer/CoreSimulator/Devices/[Device ID]/data/Applications/ - [Where Does Simulator 8.0 Store Files?](http://stackoverflow.com/a/24025345/776167)
 5. Restart the simulator
 6. The icons will be on the second screen, just swipe over. Look up pictures of the default iOS home screen and order the icons appropriately.
 7. Profit?
